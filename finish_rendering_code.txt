@@ -1,0 +1,258 @@
+function finishSocialRendering(data, categoryName, bgColor, catKey) {
+        if (!socialDetailView || !socialGalleryGrid) return;
+
+        socialPage.style.background = '#ffffff';
+        if (socialCategoryName) socialCategoryName.textContent = categoryName;
+
+        // Load images from JSON
+        const imagesData = await loadSocialImages();
+        const images = imagesData[catKey] || [];
+
+        socialGalleryGrid.innerHTML = images.map(img => {
+            // Use thumbnail for initial grid view to save performance
+            const thumb = img.replace('assets/social/', 'assets/social-thumbs/');
+            // Use compressed version for lightbox (same path structure as featured-clients)
+            const compressed = img.replace('assets/social/', 'assets/social-compressed/');
+            return `
+                <div class="gallery-item" data-full="${compressed}" data-thumb="${thumb}">
+                    <img src="${thumb}" alt="${categoryName}" loading="lazy" 
+                         onerror="this.src='${img}'; this.onerror=null;">
+                </div>
+            `;
+        }).join('');
+
+        // Add click events for lightbox - EXACT COPY FROM CLIENTS PAGE
+        console.log('Setting up social gallery lightbox for', images.length, 'images');
+        const cursor = document.getElementById('customCursor');
+        socialGalleryGrid.querySelectorAll('.gallery-item').forEach((wrapper, idx) => {
+            const img = wrapper.querySelector('img');
+            if (!img) return;
+
+            // Custom cursor hover - subtle enlarge, no text
+            if (cursor) {
+                wrapper.addEventListener('mouseenter', () => cursor.classList.add('is-hovering-gallery'));
+                wrapper.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering-gallery'));
+            }
+
+            img.addEventListener('click', () => {
+                console.log('Image clicked, opening lightbox');
+                // Get origin rect for scale animation
+                const originRect = wrapper.getBoundingClientRect();
+
+                // Get all full-size srcs in current gallery
+                const allItems = Array.from(socialGalleryGrid.querySelectorAll('.gallery-item'));
+                // Filter out items without data (not yet observed/loaded)
+                const allFullSrcs = allItems.map(w => w.dataset.full).filter(Boolean);
+                const allThumbSrcs = allItems.map(w => {
+                    const img = w.querySelector('img');
+                    return img ? img.src : '';
+                }).filter(Boolean);
+                // Recalculate index based on filtered list
+                let currentIdx = allItems.filter(w => w.dataset.full).indexOf(wrapper);
+                if (currentIdx < 0) currentIdx = 0;
+                let isAnimating = false;
+                let navQueue = []; // queue of directions
+
+                function processQueue() {
+                    if (navQueue.length === 0 || isAnimating) return;
+                    const dir = navQueue.shift();
+                    const nextIdx = currentIdx + dir;
+                    if (nextIdx >= 0 && nextIdx < allFullSrcs.length) {
+                        currentIdx = nextIdx;
+                        openLightbox(currentIdx, dir);
+                    } else {
+                        processQueue(); // skip invalid and try next
+                    }
+                }
+
+                // Preload cache
+                const preloadCache = {};
+                function preload(idx) {
+                    if (idx < 0 || idx >= allFullSrcs.length) return;
+                    if (!allFullSrcs[idx]) return;
+                    if (preloadCache[idx]) return;
+                    const img = new Image();
+                    img.src = allFullSrcs[idx];
+                    preloadCache[idx] = img;
+                }
+
+                function openLightbox(idx, direction = 0) {
+                    const existing = document.querySelector('.gallery-lightbox');
+
+                    if (existing && direction !== 0) {
+                        if (isAnimating) {
+                            navQueue.push(direction);
+                            return;
+                        }
+                        isAnimating = true;
+
+                        const oldImg = existing.querySelector('.gallery-lightbox-img');
+                        const toX    = direction > 0 ? '100%' : '-100%';
+                        const fromX  = direction > 0 ? '-100%' :  '100%';
+
+                        // Show thumbnail first as placeholder (instant)
+                        const thumbSrcNew = allThumbSrcs[idx];
+
+                        const newImg = document.createElement('img');
+                        newImg.className = 'gallery-lightbox-img';
+                        // Use cached if ready, else load compressed directly
+                        const cached = preloadCache[idx];
+                        newImg.src = (cached && cached.complete) ? allFullSrcs[idx] : allFullSrcs[idx];
+                        newImg.style.cssText = `position:absolute; transform:translateX(${fromX}); opacity:0; transition:none;`;
+                        existing.appendChild(newImg);
+
+                        // Force reflow then animate
+                        newImg.getBoundingClientRect();
+                        oldImg.style.transition = 'transform 0.15s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.15s ease';
+                        oldImg.style.transform  = `translateX(${toX})`;
+                        oldImg.style.opacity    = '0';
+                        newImg.style.transition = 'transform 0.15s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.15s ease';
+                        newImg.style.transform  = 'translateX(0)';
+                        newImg.style.opacity    = '1';
+
+                        setTimeout(() => {
+                            oldImg.remove();
+                            newImg.style.position   = '';
+                            newImg.style.transition = '';
+                            newImg.style.transform  = '';
+                            existing.querySelector('.gallery-lightbox-arrow--prev').disabled = idx === 0;
+                            existing.querySelector('.gallery-lightbox-arrow--next').disabled = idx === allFullSrcs.length - 1;
+                            isAnimating = false;
+                            preload(idx - 1);
+                            preload(idx + 1);
+                            // Process next queued navigation
+                            processQueue();
+                        }, 160);
+                        return;
+                    }
+
+                    // First open - load compressed directly (no thumbnail step)
+                    const lb = document.createElement('div');
+                    lb.className = 'gallery-lightbox';
+
+                    const bg = document.createElement('div');
+                    bg.className = 'gallery-lightbox-bg';
+                    bg.style.opacity = '0';
+                    bg.style.transition = 'opacity 0.25s ease';
+
+                    const lbImg = document.createElement('img');
+                    lbImg.className = 'gallery-lightbox-img';
+                    lbImg.decoding  = 'async';
+                    lbImg.src = allFullSrcs[idx];
+                    // Scale-up from origin position
+                    const vw = window.innerWidth;
+                    const vh = window.innerHeight;
+                    const scaleX = originRect.width  / vw;
+                    const scaleY = originRect.height / vh;
+                    const tx = originRect.left + originRect.width  / 2 - vw / 2;
+                    const ty = originRect.top  + originRect.height / 2 - vh / 2;
+
+                    lbImg.style.transform  = `translate(${tx}px, ${ty}px) scale(${scaleX}, ${scaleY})`;
+                    lbImg.style.opacity    = '0';
+                    lbImg.style.transition = 'none';
+
+                    const cls = document.createElement('button');
+                    cls.className   = 'gallery-lightbox-close';
+                    cls.textContent = '✕';
+                    cls.style.opacity = '0';
+
+                    const prevBtn = document.createElement('button');
+                    prevBtn.className = 'gallery-lightbox-arrow gallery-lightbox-arrow--prev';
+                    prevBtn.disabled  = idx === 0;
+                    prevBtn.style.opacity = '0';
+
+                    const nextBtn = document.createElement('button');
+                    nextBtn.className = 'gallery-lightbox-arrow gallery-lightbox-arrow--next';
+                    nextBtn.disabled  = idx === allFullSrcs.length - 1;
+                    nextBtn.style.opacity = '0';
+
+                    lb.appendChild(bg);
+                    lb.appendChild(lbImg);
+                    lb.appendChild(cls);
+                    lb.appendChild(prevBtn);
+                    lb.appendChild(nextBtn);
+
+                    document.body.appendChild(lb);
+
+                    // Trigger scale-up animation
+                    requestAnimationFrame(() => requestAnimationFrame(() => {
+                        bg.style.opacity   = '1';
+                        cls.style.opacity  = '1';
+                        cls.style.transition  = 'opacity 0.15s ease 0.05s';
+                        prevBtn.style.opacity = '1';
+                        prevBtn.style.transition = 'opacity 0.15s ease 0.05s';
+                        nextBtn.style.opacity = '1';
+                        nextBtn.style.transition = 'opacity 0.15s ease 0.05s';
+                        lbImg.style.transition = 'transform 0.18s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.15s ease';
+                        lbImg.style.transform  = 'translate(0, 0) scale(1)';
+                        lbImg.style.opacity    = '1';
+                    }));
+                    function closeLightbox() {
+                        // Scale-down back to origin
+                        const vw = window.innerWidth;
+                        const vh = window.innerHeight;
+                        const tx = originRect.left + originRect.width  / 2 - vw / 2;
+                        const ty = originRect.top  + originRect.height / 2 - vh / 2;
+                        const scaleX = originRect.width  / vw;
+                        const scaleY = originRect.height / vh;
+
+                        bg.style.opacity   = '0';
+                        cls.style.opacity  = '0';
+                        prevBtn.style.opacity = '0';
+                        nextBtn.style.opacity = '0';
+                        const curImg = lb.querySelector('.gallery-lightbox-img');
+                        if (curImg) {
+                            curImg.style.transition = 'transform 0.18s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.15s ease';
+                            curImg.style.transform  = `translate(${tx}px, ${ty}px) scale(${scaleX}, ${scaleY})`;
+                            curImg.style.opacity    = '0';
+                        }
+                        setTimeout(() => lb.remove(), 200);
+                    }
+
+                    bg.addEventListener('click',  () => closeLightbox());
+                    cls.addEventListener('click', () => closeLightbox());
+                    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navQueue.push(-1); processQueue(); });
+                    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navQueue.push(1);  processQueue(); });
+
+                    lb._keyHandler = (e) => {
+                        if (e.key === 'ArrowLeft'  && currentIdx < allFullSrcs.length - 1) { navQueue.push(1);  processQueue(); }
+                        if (e.key === 'ArrowRight' && currentIdx > 0)                       { navQueue.push(-1); processQueue(); }
+                        if (e.key === 'Escape') closeLightbox();
+                    };
+                    document.addEventListener('keydown', lb._keyHandler);
+
+                    // Preload neighbors
+                    preload(idx - 1);
+                    preload(idx + 1);
+                }
+
+                // Also preload the first image's neighbors right away
+                preload(currentIdx - 1);
+                preload(currentIdx + 1);
+
+                openLightbox(currentIdx);
+            });
+        });
+
+        if (socialGrid) socialGrid.style.display = 'none';
+        socialDetailView.style.display = 'block';
+
+        requestAnimationFrame(() => {
+            socialDetailView.classList.add('active');
+            
+            // Optimized reveal using IntersectionObserver instead of massive setTimeout loop
+            if (window.socialGalleryObserver) window.socialGalleryObserver.disconnect();
+            
+            window.socialGalleryObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        window.socialGalleryObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '50px' });
+
+            const items = socialDetailView.querySelectorAll('.gallery-item');
+            items.forEach(item => window.socialGalleryObserver.observe(item));
+        });
+    }

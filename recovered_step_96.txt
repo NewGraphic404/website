@@ -1,0 +1,98 @@
+Created At: 2026-05-31T07:34:31Z
+Completed At: 2026-05-31T07:34:32Z
+File Path: `file:///d:/%D8%B4%D8%BA%D9%84%20%D9%8A%D9%88%D8%B3%D9%81/website/script.js`
+Total Lines: 3359
+Total Bytes: 162301
+Showing lines 6 to 805
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+6:     initLoader();
+7:     initHeader();
+8:     initMobileMenu();
+9:     initScrollReveal();
+10:     initAboutSlider();
+11:     initTypewriter();
+12:     initSmoothScroll();
+13:     initCinematicPartners();
+14:     initLocalization();
+15:     initCustomCursor();
+16:     initClientsPage();
+17:     initSocialPage();
+18:     initProfileModal();
+19:     initFooterMarquee();
+20:     initEmailModal();
+21:     initBackToTop();
+22:     initEdgeTriggers();
+23:     initShowreelVideo();
+24:     initOrderForm();
+25:     // Populate all data-i18n elements on first load
+26:     updateLanguage();
+27: });
+28: 
+29: /* ---- Translations ---- */
+30: const translations = {
+31:     ar: {
+32:         nav_about: 'من نحن',
+33:         nav_outdoor: 'أوت دور',
+34:         nav_print: 'مطبوعات',
+35:         nav_digital: 'ديجيتال',
+36:         nav_giveaway: 'جيف أواي',
+37:         nav_social: 'سوشيال',
+38:         social_title: 'أعمالنا على السوشيال',
+39:         nav_exhibitions: 'معارض',
+40:         nav_works: 'أعمالنا',
+41:         nav_clients: 'عملاؤنا',
+42:         nav_contact: 'تواصل معنا',
+43:         nav_mockups: 'موك أبز',
+44:         hero_title_base: 'نصنع',
+45:         hero_title_success: 'النجاح',
+46:         hero_title_for: 'لـ',
+47:         hero_cta: 'إيه اللي نقدر نعمله؟',
+48:         about_label: 'من نحن',
+49:         about_title_1: 'من الفكرة',
+50:         about_title_2: 'للإبداع',
+51:         about_p1: 'نيو جرافيك شركة دع
+<truncated 37364 bytes>
+= items[current];
+764: 
+765:         // type label instantly
+766:         labelEl.textContent = item.label;
+767: 
+768:         // type text
+769:         typeString(textEl, item.text, CHAR_DELAY, () => {
+770:             // pause then erase
+771:             setTimeout(() => {
+772:                 eraseString(textEl, ERASE_DELAY, () => {
+773:                     labelEl.textContent = '';
+774:                     current = (current + 1) % items.length;
+775:                     setTimeout(runCycle, 400);
+776:                 });
+777:             }, PAUSE_AFTER);
+778:         });
+779:     }
+780: 
+781:     runCycle();
+782: }
+783: 
+784: /* ================================================================
+785:    SMOOTH SCROLL
+786:    ================================================================ */
+787: function initSmoothScroll() {
+788:     const links = document.querySelectorAll('.nav-link:not(#navClients):not(#navSocial), .mobile-nav-link:not([href="#social-page"]), a[href="#hero"], a[href="#contact"], .footer-links a');
+789: 
+790:     links.forEach(link => {
+791:         link.addEventListener('click', (e) => {
+792:             const targetId = link.getAttribute('href');
+793:             if (targetId === '#') return;
+794: 
+795:             const target = document.querySelector(targetId);
+796:             if (!target) return;
+797: 
+798:             e.preventDefault();
+799: 
+800:             // Check if we're currently inside a full-page overlay (clients, portfolio choices, or social)
+801:             const clientsPage = document.getElementById('clientsPage');
+802:             const choicesPage = document.getElementById('portfolioChoicesPage');
+803:             const socialPage = document.getElementById('socialPage');
+804:             const isInOverlay =
+805:                 (clientsPage && clientsPage.classList.contains('active')) ||
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <style>
+        body { background: #111; color: white; margin: 0; padding: 50px; }
+        .wrapper { overflow: hidden; width: 100%; border: 2px solid red; }
+        .track { display: flex; animation: scroll 5s linear infinite; width: max-content; }
+        .item { padding: 20px; border: 1px solid #333; margin-left: 20px; background: #222; }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            /* In RTL, positive translateX moves it right, which is the direction we want it to scroll (left to right visual flow in RTL, or right to left?)
+               Actually, standard marquee in RTL starts right and goes left. So we need to translate (positive or negative) */
+            100% { transform: translateX(33.333%); } 
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="track">
+            <!-- Set 1 -->
+            <div class="item">Item 1</div><div class="item">Item 2</div><div class="item">Item 3</div>
+            <!-- Set 2 -->
+            <div class="item">Item 1</div><div class="item">Item 2</div><div class="item">Item 3</div>
+            <!-- Set 3 -->
+            <div class="item">Item 1</div><div class="item">Item 2</div><div class="item">Item 3</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<USER_REQUEST>
+طيب بص انتا عندك نبذه عن الموقع بشكل عام انا عايز فيديو ai مده علي الاقل 40 او 50 ثانيه تشرح فيها الموقع غير اننا اصلا شركة تسويق حرفيا فيها كل حاجا كل حاجا كل حاجا حرفيا خد نبذه عن الموقع بشكل عام و اننا برده عندنا قسم للتسويق للصفح و اننا بنكربها و كدا و اكتبلي برومبت لل sora 2 بنظام جدول SECs what is seen what is heard و في كل قسم من اقسام ال what is heard لاااااااااااازم تكتب في كل سكشن من سكاشن ال what is heard !!!!!!!! لهجة مصريه عامله و حاول تثبت الصوت و الي هيتكلموا و يشرحوا الموقع هيكونوا الاتنين دول اول نص من الفيديو هيكون الولد النص التاني هتكون البنت و دا اللوجو بتاعنا و تكون الوان الفيديو مناسب للهيوه بتاعتنا البنفسجي و  البرتقاني
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-02T16:38:15+03:00.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from Gemini 3.5 Flash (High) to Claude Opus 4.6 (Thinking). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>

@@ -1,0 +1,104 @@
+Created At: 2026-06-01T07:34:33Z
+Completed At: 2026-06-01T07:34:33Z
+File Path: `file:///D:/%D8%B4%D8%BA%D9%84%20%D9%8A%D9%88%D8%B3%D9%81/website/script.js`
+Total Lines: 3406
+Total Bytes: 165040
+Showing lines 11 to 810
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+11:     initTypewriter();
+12:     initSmoothScroll();
+13:     initCinematicPartners();
+14:     initLocalization();
+15:     initCustomCursor();
+16:     initClientsPage();
+17:     initSocialPage();
+18:     initProfileModal();
+19:     initFooterMarquee();
+20:     initEmailModal();
+21:     initBackToTop();
+22:     initEdgeTriggers();
+23:     initShowreelVideo();
+24:     initOrderForm();
+25:     // Populate all data-i18n elements on first load
+26:     updateLanguage();
+27: });
+28: 
+29: /* ---- Translations ---- */
+30: const translations = {
+31:     ar: {
+32:         nav_about: 'من نحن',
+33:         nav_outdoor: 'أوت دور',
+34:         nav_print: 'مطبوعات',
+35:         nav_digital: 'ديجيتال',
+36:         nav_giveaway: 'جيف أواي',
+37:         nav_social: 'سوشيال',
+38:         social_title: 'أعمالنا على السوشيال',
+39:         nav_exhibitions: 'معارض',
+40:         nav_works: 'أعمالنا',
+41:         nav_clients: 'عملاؤنا',
+42:         nav_contact: 'تواصل معنا',
+43:         nav_support: 'الدعم',
+44:         nav_location: 'الموقع',
+45:         nav_complaints: 'الشكاوى والاقتراحات',
+46:         nav_mockups: 'موك أبز',
+47:         hero_title_base: 'نصنع',
+48:         hero_title_success: 'النجاح',
+49:         hero_title_for: 'لـ',
+50:         hero_cta: 'إيه اللي نقدر نعمله؟',
+51:         about_label: 'من نحن',
+52:         about_title_1: 'من الفكرة',
+53:         about_title_2: 'للإبداع',
+54:         about_p1: 'ني
+<truncated 38261 bytes>
+             // insert text before cursor
+761:                 el.childNodes[0]
+762:                     ? el.childNodes[0].textContent = str.slice(0, i)
+763:                     : el.insertBefore(document.createTextNode(str.slice(0, i)), cursor);
+764:                 i++;
+765:                 setTimeout(next, delay);
+766:             } else {
+767:                 cb && cb();
+768:             }
+769:         }
+770:         // ensure text node exists
+771:         if (!el.childNodes[0] || el.childNodes[0] === cursor) {
+772:             el.insertBefore(document.createTextNode(''), cursor);
+773:         }
+774:         next();
+775:     }
+776: 
+777:     function eraseString(el, delay, cb) {
+778:         function next() {
+779:             const node = el.childNodes[0];
+780:             if (node && node !== cursor && node.textContent.length > 0) {
+781:                 node.textContent = node.textContent.slice(0, -1);
+782:                 setTimeout(next, delay);
+783:             } else {
+784:                 cb && cb();
+785:             }
+786:         }
+787:         next();
+788:     }
+789: 
+790:     const boxEl = document.querySelector('.about-typewriter-box');
+791: 
+792:     function runCycle() {
+793:         const item = items[current];
+794: 
+795:         // type label instantly
+796:         labelEl.textContent = item.label;
+797: 
+798:         // Measure target height before typing
+799:         if (boxEl) {
+800:             const tempNode = document.createTextNode(item.text);
+801:             textEl.insertBefore(tempNode, cursor);
+802:             
+803:             boxEl.style.transition = 'none';
+804:             boxEl.style.minHeight = 'unset';
+805:             boxEl.style.height = 'auto';
+806:             
+807:             const targetHeight = boxEl.offsetHeight;
+808:             
+809:             tempNode.remove();
+810:             
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

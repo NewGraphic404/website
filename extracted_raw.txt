@@ -1,0 +1,80 @@
+Created At: 2026-06-01T07:42:34Z
+Completed At: 2026-06-01T07:42:34Z
+File Path: `file:///D:/%D8%B4%D8%BA%D9%84%20%D9%8A%D9%88%D8%B3%D9%81/website/script.js`
+Total Lines: 3443
+Total Bytes: 169578
+Showing lines 3100 to 3300
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+3100: 
+3101:     // Close on overlay click
+3102:     modal.addEventListener('click', (e) => {
+3103:         if (e.target === modal) close();
+3104:     });
+3105: 
+3106:     // Close on Escape
+3107:     window.addEventListener('keydown', (e) => {
+3108:         if (e.key === 'Escape' && modal.classList.contains('active')) close();
+3109:     });
+3110: 
+3111:     // Also hook all other "تواصل معنا" nav links
+3112:     document.querySelectorAll('a[href="#contact"].nav-link--cta, a[href="#contact"].footer-cta-big').forEach(link => {
+3113:         link.addEventListener('click', (e) => {
+3114:             e.preventDefault();
+3115:             open();
+3116:         });
+3117:     });
+3118: }
+3119: 
+3120: /* ================================================================
+3121:    BACK TO TOP BUTTON
+3122:    ================================================================ */
+3123: function initBackToTop() {
+3124:     const btn = document.getElementById('backToTop');
+3125:     if (!btn) return;
+3126: 
+3127:     let isVisible = false;
+3128:     let las    if (!form) return;
+3129: 
+3130:     // Address Mode Toggle Logic
+3131:     let addressMode = 'manual';
+3132:     const addressModeBtns = modal.querySelectorAll('.address-mode-btn');
+3133:     const addressInputWrapper = document.getElementById('addressInputWrapper');
+3134:     const manualContainer = document.getElementById('orderAddressManualContainer');
+3135:     const gpsContainer = document.getElementById('orderAddressGpsContainer');
+3136:     const manualInput = document.getElementById('orderAddressManual');
+<truncated 6146 bytes>
+const TEMPLATE_ID = 'template_be1uaha';
+3268: 
+3269:             emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+3270:                 to_email:  email,
+3271:                 from_name: name,
+3272:                 name:      name,
+3273:                 title:     `طلب جديد — ${service}`,
+3274:                 phone:     phone,
+3275:                 service:   service,
+3276:                 message:   fullMessage, // Pass the compiled formatted text message
+3277:                 email:     email,
+3278:             })
+3279:             .then(() => {
+3280:                 // Show success
+3281:                 emailStep.innerHTML = `
+3282:                     <div class="order-success">
+3283:                         <div class="order-success__icon">✅</div>
+3284:                         <h3 class="order-success__title">تم إرسال الطلب!</h3>
+3285:                         <p class="order-success__msg">وصل طلبك على <strong>${email}</strong><br>هنرد عليك في أقرب وقت 🙌</p>
+3286:                     </div>`;
+3287:                 setTimeout(() => {
+3288:                     form.style.display = '';
+3289:                     emailStep.classList.remove('visible');
+3290:                     emailStep.innerHTML = originalEmailStepHTML;
+3291:                     form.reset();
+3292:                     // Reset toggles to default manual
+3293:                     addressMode = 'manual';
+3294:                     const manualBtn = modal.querySelector('.address-mode-btn[data-mode="manual"]');
+3295:                     if (manualBtn) manualBtn.click();
+3296:                     if (gpsInput) gpsInput.value = '';
+3297:                     if (gpsStatus) gpsStatus.textContent = '';
+3298:                     orderData = {};
+3299:                     closeModal();
+3300:                     rebindEmailChoices();
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

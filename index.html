@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes">
+    <title data-i18n="doc_title">New Graphic Co. | شركة نيو جرافيك للدعاية والإعلان</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <meta name="description"
+        content="شركة نيو جرافيك للدعاية والإعلان - أوت دور مطبوعات ديجيتال ماركتنج جيف أواي تنظيم معارض. نخلي اسمك يلمع!">
+    <meta name="author" content="New Graphic Co.">
+    <meta property="og:title" content="New Graphic Co. | شركة نيو جرافيك">
+    <meta property="og:description"
+        content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Cairo:wght@300;400;700&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.2.9">
+    <script src="assets/portfolio-images.js"></script>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function(){ emailjs.init({ publicKey: "VBjKLweIFBzb7qyOy" }); })();
+    </script>
+</head>
+
+<body>
+    <div id="customCursor" class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+        <div id="cursorMore" class="cursor-more" data-i18n="more"></div>
+    </div>
+
+    <!-- Edge Triggers for Menu - Both Sides -->
+    <div id="edgeTriggerLeft" class="edge-trigger edge-trigger--left">
+        <svg class="edge-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </div>
+    <div id="edgeTriggerRight" class="edge-trigger edge-trigger--right">
+        <svg class="edge-trigger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+    </div>
+
+    <!-- Page Transition Overlay -->
+    <div id="pageTransition" class="page-transition-overlay">
+        <div class="transition-bg"></div>
+        <div class="transition-glow"></div>
+        <img src="assets/logo.png" alt="Transition Logo" class="transition-logo">
+    </div>
+
+
+
+    <header id="mainHeader" class="main-header">
+        <div class="header-inner">
+
+            <!-- RIGHT: logo pill -->
+            <div class="header-pill header-pill--logo">
+                <a href="#" class="logo" aria-label="">
+                    <img src="assets/logo.png" alt="New Graphic Co." class="logo-img">
+                </a>
+            </div>
+
+            <!-- CENTER: nav links -->
+            <div class="header-pill header-pill--nav">
+                <button class="menu-toggle" id="menuToggle" aria-label="toggle menu">
+                    <span class="menu-bar"></span>
+                    <span class="menu-bar"></span>
+                    <span class="menu-bar"></span>
+                </button>
+                <nav class="main-nav" id="mainNav">
+                    <ul class="nav-list">
+                        <li><a href="#identityPage" id="navIdentity" class="nav-link"><span data-i18n="nav_identity">هوية بصرية</span></a></li>
+                        <li><a href="#portfolio-print" id="navPrints" class="nav-link"><span data-i18n="nav_print">مطبوعات</span></a></li>
+                        <li><a href="#portfolio-outdoor" id="navOutdoor" class="nav-link"><span data-i18n="nav_outdoor">Outdoor</span></a></li>
+                        <li class="nav-item-with-custom-dropdown">
+                            <a href="#social-page" id="navSocial" class="nav-link"><span data-i18n="nav_social">Social</span></a>
+                            <div class="custom-dropdown-pill" dir="rtl">
+                                <a href="#" class="dropdown-pill-link right-link social-dropdown-link" data-subdir="صور" data-i18n="social_photos">صور</a>
+                                <span class="dropdown-pill-divider">|</span>
+                                <a href="#" class="dropdown-pill-link social-dropdown-link" data-subdir="فيديوهات" data-i18n="social_videos">فيديوهات</a>
+                                <span class="dropdown-pill-divider">|</span>
+                                <a href="#" class="dropdown-pill-link left-link social-dropdown-link" data-subdir="الاعلانات المموله" data-i18n="social_ads">الاعلانات المموله</a>
+                            </div>
+                        </li>
+                        <li><a href="#portfolio-giveaway" id="navGiveaway" class="nav-link"><span data-i18n="nav_giveaway">Giveaway</span></a></li>
+                        <li><a href="#portfolio-exhibitions" id="navExhibitions" class="nav-link"><span data-i18n="nav_exhibitions">تنظيم معارض</span></a></li>
+                        <li class="nav-item-with-custom-dropdown">
+                            <a href="#" class="nav-link" onclick="event.preventDefault()"><span data-i18n="nav_clients">العملاء</span></a>
+                            <div class="custom-dropdown-pill" dir="rtl">
+                                <a href="#clients-section" class="dropdown-pill-link right-link" data-i18n="nav_partners">شركاء النجاح</a>
+                                <span class="dropdown-pill-divider">|</span>
+                                <a href="#clientsPage" class="dropdown-pill-link left-link" id="navClients" data-i18n="nav_our_clients">عملاؤنا</a>
+                            </div>
+                        </li>
+                        <li class="nav-item-with-custom-dropdown">
+                            <a href="#" class="nav-link" onclick="event.preventDefault()"><span data-i18n="nav_location">الموقع</span></a>
+                            <div class="custom-dropdown-pill" dir="rtl">
+                                <a href="https://www.google.com/maps/search/%D8%A7%D9%84%D9%81%D8%B1%D8%B9+%D8%A7%D9%84%D8%A7%D9%88%D9%84+%D8%A8%D9%88%D8%B1%D8%B3%D8%B9%D9%8A%D8%AF+%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D9%8A%D9%86%D9%8A+%D8%A8%D8%B1%D8%AC+%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D9%87+%D8%A8%D9%84%D8%A7%D8%B2%D8%A7+%D8%A7%D9%84%D8%AF%D9%88%D8%B1+%D8%A7%D9%84%D8%B3%D8%A7%D8%AF%D8%B3%E2%80%AD/@31.2594832,32.2941002,13z?utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MDUyN18wIJvbDyoASAJQAQ%3D%3D" target="_blank" class="dropdown-pill-link right-link" data-i18n="loc_portsaid">بورسعيد</a>
+                                <span class="dropdown-pill-divider">|</span>
+                                <a href="https://www.google.com/maps/search/%D8%AF%D9%85%D9%8A%D8%A7%D8%B7+%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D9%87+%D8%A7%D9%84%D9%85%D9%86%D8%B7%D9%82%D9%87+%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2%D9%8A%D9%87+%D9%81%D9%88%D9%82+%D9%83%D8%A7%D9%81%D9%8A%D9%87+%D8%A8%D8%A7%D9%88%D9%84%D9%88%E2%80%AD/@31.4383498,31.675964,16z?utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MDUyN18wIJvbDyoASAJQAQ%3D%3D" target="_blank" class="dropdown-pill-link left-link" data-i18n="loc_damietta">دمياط</a>
+                            </div>
+                        </li>
+                        <li><a href="#" class="nav-link" id="navSupportBtn"><span data-i18n="nav_support">الدعم</span></a></li>
+                        <li><a href="#" class="nav-link" id="navComplaintsBtn"><span data-i18n="nav_complaints">الشكاوى والاقتراحات</span></a></li>
+                        <li><a href="#order" class="nav-link nav-link--order" id="navOrderBtn"><span data-i18n="nav_order">اطلب أوردرك</span></a></li>
+                        <li><a href="#contact" class="nav-link nav-link--cta"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13" />
+                                    <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+                                </svg><span data-i18n="nav_contact"></span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- LEFT: EN button always on left -->
+            <div class="header-lang-fixed">
+                <button id="langToggle" class="lang-btn">EN</button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Mobile lang toggle - fixed below logo circle -->
+    <button id="langToggleMobile" class="lang-btn lang-btn--mobile">EN</button>
+
+    <!-- Mobile toggle - fixed position above everything -->
+    <button class="menu-toggle-fixed" id="menuToggleFixed" aria-label="toggle menu">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+    </button>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-logo">
+            <img src="assets/logo_white.png" alt="New Graphic Co.">
+        </div>
+        <nav class="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li><a href="#" id="mobileOrderBtn" class="mobile-nav-link" style="color: var(--gold)"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span data-i18n="nav_order">اطلب اوردرك</span></a></li>
+                <li><a href="#identityPage" id="mobileNavIdentity" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span data-i18n="nav_identity">هوية بصرية</span></a></li>
+                <li><a href="#portfolio-print" id="mobileNavPrints" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg><span data-i18n="nav_print">مطبوعات</span></a></li>
+                <li><a href="#portfolio-outdoor" id="mobileNavOutdoor" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="12" x="3" y="4" rx="1"/><path d="M8 20h8M12 16v4"/></svg><span data-i18n="nav_outdoor">Outdoor</span></a></li>
+                <li><a href="#social-page" id="mobileNavSocial" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.5V20m0 0v-4m0 4h4m-4 0H8M19 12h1.5M19 12a7 7 0 10-14 0c0 3.866 3.134 7 7 7M19 12h-4"/></svg><span data-i18n="nav_social">Social</span></a></li>
+                <li><a href="#portfolio-giveaway" id="mobileNavGiveaway" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span data-i18n="nav_giveaway">Giveaway</span></a></li>
+                <li><a href="#portfolio-exhibitions" id="mobileNavExhibitions" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg><span data-i18n="nav_exhibitions">تنظيم معارض</span></a></li>
+                <li><a href="#clients-section" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-i18n="nav_partners">شركاء النجاح</span></a></li>
+                <li><a href="#clientsPage" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></svg><span data-i18n="nav_our_clients">عملاؤنا</span></a></li>
+                <li><a href="https://www.google.com/maps/search/%D8%A7%D9%84%D9%81%D8%B1%D8%B9+%D8%A7%D9%84%D8%A7%D9%88%D9%84+%D8%A8%D9%88%D8%B1%D8%B3%D8%B9%D9%8A%D8%AF+%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D8%AB%D9%84%D8%A7%D8%AB%D9%8A%D9%86%D9%8A+%D8%A8%D8%B1%D8%AC+%D8%A7%D9%84%D8%AD%D9%8A%D8%A7%D9%87+%D8%A8%D9%84%D8%A7%D8%B2%D8%A7+%D8%A7%D9%84%D8%AF%D9%88%D8%B1+%D8%A7%D9%84%D8%B3%D8%A7%D8%AF%D8%B3%E2%80%AD/@31.2594832,32.2941002,13z?utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MDUyN18wIJvbDyoASAJQAQ%3D%3D" target="_blank" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="loc_portsaid_branch">فرع بورسعيد</span></a></li>
+                <li><a href="https://www.google.com/maps/search/%D8%AF%D9%85%D9%8A%D8%A7%D8%B7+%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF%D9%87+%D8%A7%D9%84%D9%85%D9%86%D8%B7%D9%82%D9%87+%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2%D9%8A%D9%87+%D9%81%D9%88%D9%82+%D9%83%D8%A7%D9%81%D9%8A%D9%87+%D8%A8%D8%A7%D9%88%D9%84%D9%88%E2%80%AD/@31.4383498,31.675964,16z?utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MDUyN18wIJvbDyoASAJQAQ%3D%3D" target="_blank" class="mobile-nav-link"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="loc_damietta_branch">فرع دمياط</span></a></li>
+                <li><a href="#" class="mobile-nav-link" id="mobileSupportBtn"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg><span data-i18n="nav_support">الدعم</span></a></li>
+                <li><a href="#" class="mobile-nav-link" id="mobileComplaintsBtn"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span data-i18n="nav_complaints">الشكاوى والاقتراحات</span></a></li>
+                <li><button id="mobileContactBtn" class="mobile-nav-link mobile-nav-link--cta" style="background:none;border:none;cursor:pointer;width:100%;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span data-i18n="nav_contact">تواصل معنا</span></button></li>
+            </ul>
+            <div class="mobile-menu-footer">
+                <div class="mobile-footer-emails">
+                    <a href="https://mail.google.com/mail/?view=cm&to=e.newgraphic@gmail.com" target="_blank" class="mobile-footer-email">e.newgraphic@gmail.com</a>
+                    <a href="https://mail.google.com/mail/?view=cm&to=graphicn249@gmail.com" target="_blank" class="mobile-footer-email">graphicn249@gmail.com</a>
+                </div>
+                <div class="mobile-social">
+                    <a href="https://www.facebook.com/share/1AZ9NAFwuU/" aria-label="Facebook" target="_blank" class="mobile-social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/newgraphic.ads?igsh=bHRkbDhtN3R3Nmx5" aria-label="Instagram" target="_blank" class="mobile-social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@newgraphic_co?_r=1&_t=ZS-94jtTSrFMqD" aria-label="TikTok" target="_blank" class="mobile-social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ============================================================
+         ORDER MODAL — اطلب اوردرك
+    ============================================================ -->
+    <div id="orderModal" class="order-modal-overlay">
+        <div class="order-modal-container">
+            <button class="order-modal-close" id="orderModalClose" aria-label="close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="order-bg-glow"></div>
+            <div class="section-container">
+                <div class="order-inner">
+                    <div class="order-text reveal-up">
+                        <span class="section-label order-label" data-i18n="order_modal_label">ابدأ معنا</span>
+                        <h2 class="order-title" data-i18n="order_modal_title">اطلب <span class="order-title--highlight">أوردرك</span></h2>
+                        <p class="order-desc" data-i18n="order_modal_desc">سواء كان مشروعك صغير أو كبير — إحنا هنا نحوله لحاجة تلفت النظر. بعتلنا تفاصيل شغلتك وهنرد عليك في أقرب وقت.</p>
+                        <div class="order-features">
+                            <div class="order-feature">
+                                <span class="order-feature-icon">⚡</span>
+                                <span data-i18n="order_feature_quick">رد سريع</span>
+                            </div>
+                            <div class="order-feature">
+                                <span class="order-feature-icon">🎯</span>
+                                <span data-i18n="order_feature_pro">تنفيذ احترافي</span>
+                            </div>
+                            <div class="order-feature">
+                                <span class="order-feature-icon">💰</span>
+                                <span data-i18n="order_feature_price">سعر تنافسي</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="order-cta-btn" id="orderContactBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                                <path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+                            </svg>
+                            <span data-i18n="order_cta_btn">تواصل معنا دلوقتي</span>
+                        </a>
+                    </div>
+                    <div class="order-form-card">
+                        <h3 class="order-form-title" data-i18n="order_form_title">أرسل تفاصيل طلبك</h3>
+                        <form class="order-form" id="orderForm">
+                            <div class="order-form-group">
+                                <label data-i18n="order_label_name">اسمك</label>
+                                <input type="text" placeholder="مثال: أحمد محمد" required id="orderName" data-i18n="order_placeholder_name">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="order_label_phone">رقم التليفون</label>
+                                <input type="tel" placeholder="01xxxxxxxxx" required id="orderPhone" data-i18n="order_placeholder_phone">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="order_label_email">البريد الإلكتروني</label>
+                                <input type="email" placeholder="example@domain.com" required id="orderEmailInput" data-i18n="order_placeholder_email">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="order_label_field">مجال العمل / شركتك</label>
+                                <input type="text" placeholder="مثال: عقارات، مطاعم، ملابس..." required id="orderFieldOfWork" data-i18n="order_placeholder_field">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="order_label_province">المحافظة</label>
+                                <select required id="orderProvince">
+                                    <option value="" disabled selected data-i18n="order_select_province">اختار المحافظة</option>
+                                    <option data-i18n="province_damietta">دمياط</option>
+                                    <option data-i18n="province_new_damietta">دمياط الجديدة</option>
+                                    <option data-i18n="province_cairo">القاهرة</option>
+                                    <option data-i18n="province_giza">الجيزة</option>
+                                    <option data-i18n="province_alexandria">الإسكندرية</option>
+                                    <option data-i18n="province_portsaid">بورسعيد</option>
+                                    <option data-i18n="province_ismailia">الإسماعيلية</option>
+                                    <option data-i18n="province_suez">السويس</option>
+                                    <option value="other" data-i18n="province_other">أخرى</option>
+                                </select>
+                                <input type="text" placeholder="اكتب اسم محافظتك هنا..." id="orderProvinceOther" data-i18n="province_other_placeholder" style="width:100%; padding:10px; border-radius:8px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; font-size:0.75rem; margin-top:10px; display:none; font-family:'Cairo', sans-serif; box-sizing:border-box;">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="address_label">طريقة تحديد العنوان</label>
+                                <div class="address-option-group" style="display:flex; gap:10px; margin-bottom:10px;">
+                                    <label style="flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:8px; border-radius:8px; cursor:pointer; text-align:center; display:flex; align-items:center; justify-content:center; gap:5px; font-size:0.82rem;">
+                                        <input type="radio" name="address_type" value="manual" checked style="margin:0;">
+                                        <span data-i18n="address_manual">كتابة يدوية</span>
+                                    </label>
+                                                                    <label style="flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:8px; border-radius:8px; cursor:pointer; text-align:center; display:flex; align-items:center; justify-content:center; gap:5px; font-size:0.82rem;">
+                                        <input type="radio" name="address_type" value="map" style="margin:0;">
+                                        <span data-i18n="address_map">تحديد موقعي</span>
+                                    </label>
+                                </div>
+                                
+                                <!-- Option 1: Manual Input -->
+                                <div id="addressManualContainer">
+                                    <input type="text" placeholder="اكتب عنوانك بالتفصيل هنا..." id="orderAddressManual" data-i18n="address_manual_placeholder" style="width:100%;">
+                                </div>
+                                
+                                <!-- Option 2: Interactive Map -->
+                                <div id="addressMapContainer" style="display:none;">
+                                    <button type="button" id="openMapPickerBtn" class="get-location-btn" style="width:100%; padding:12px; border-radius:8px; border:1px solid var(--orange); background:rgba(245,166,35,0.1); color:var(--orange); font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:all 0.3s ease; margin-bottom:10px; font-family:'Cairo', sans-serif; box-sizing:border-box;">
+                                        🗺️ <span data-i18n="address_open_map">افتح الخريطة لتحديد موقعي</span>
+                                    </button>
+                                    <input type="text" readonly placeholder="سيظهر رابط موقعك هنا بعد تحديد الموقع من الخريطة..." id="orderAddressMapUrl" data-i18n="address_map_placeholder" style="width:100%; padding:10px; border-radius:8px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; text-align:center; cursor:default; font-size:0.75rem;">
+                                    <input type="text" placeholder="ملاحظات إضافية للعنوان (مثل: الدور، الشقة، علامة مميزة...) - اختياري" id="orderAddressMapNotes" data-i18n="address_notes_placeholder" style="width:100%; padding:10px; border-radius:8px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; font-size:0.75rem; margin-top:10px; font-family:'Cairo', sans-serif; box-sizing:border-box;">
+                                </div>
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="order_label_service">نوع الخدمة</label>
+                                <select required id="orderService">
+                                    <option value="" disabled selected data-i18n="service_select">اختار الخدمة</option>
+                                    <option data-i18n="service_outdoor">Outdoor / لافتات</option>
+                                    <option data-i18n="service_print">مطبوعات</option>
+                                    <option data-i18n="service_social">سوشيال ميديا</option>
+                                    <option data-i18n="service_identity">هوية بصرية</option>
+                                    <option data-i18n="service_exhibitions">تنظيم معارض</option>
+                                    <option data-i18n="service_giveaway">هدايا دعائية</option>
+                                    <option data-i18n="service_other">أخرى</option>
+                                </select>
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="order_label_details">تفاصيل الطلب</label>
+                                <textarea placeholder="اكتب تفاصيل شغلتك هنا..." data-i18n="order_placeholder_details" rows="3" id="orderDetails"></textarea>
+                            </div>
+                            <button type="submit" class="order-submit-btn">
+                                <span data-i18n="order_submit_btn">ابعت الطلب</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                    <path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                            </button>
+                        </form>
+
+                        <!-- Step 2: choose email -->
+                        <div class="order-email-step" id="orderEmailStep">
+                            <p class="order-email-step__title" data-i18n="order_email_step_title">اختار الإيميل اللي هتبعت عليه</p>
+                            <div class="order-email-choices">
+                                <button class="order-email-choice" data-email="e.newgraphic@gmail.com">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    e.newgraphic@gmail.com
+                                </button>
+                                <button class="order-email-choice" data-email="graphicn249@gmail.com">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    graphicn249@gmail.com
+                                </button>
+                            </div>
+                            <button class="order-email-back" id="orderEmailBack" data-i18n="order_btn_back">← رجوع</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Modal Overlay -->
+    <div id="supportModal" class="order-modal-overlay">
+        <div class="order-modal-container">
+            <button class="order-modal-close" id="supportModalClose" aria-label="close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="order-bg-glow"></div>
+            <div class="section-container">
+                <div class="order-inner">
+                    <!-- Left side: Info and features for support -->
+                    <div class="order-text reveal-up">
+                        <span class="section-label order-label" data-i18n="support_modal_label">قسم الدعم الفني</span>
+                        <h2 class="order-title" data-i18n="support_modal_title">مستعدين <span class="order-title--highlight">لمساعدتك</span></h2>
+                        <p class="order-desc" data-i18n="support_modal_desc">فريقنا متواجد دايماً لحل مشاكلك الفنية، استقبال شكاوىك، أو الاستماع لاقتراحاتك لتطوير خدماتنا. املأ البيانات وهنتابع معاك فوراً.</p>
+                        <div class="order-features">
+                            <div class="order-feature">
+                                <span class="order-feature-icon">🛠️</span>
+                                <span data-i18n="support_feature_solutions">حلول سريعة</span>
+                            </div>
+                            <div class="order-feature">
+                                <span class="order-feature-icon">🗣️</span>
+                                <span data-i18n="support_feature_personal">متابعة شخصية</span>
+                            </div>
+                            <div class="order-feature">
+                                <span class="order-feature-icon">💡</span>
+                                <span data-i18n="support_feature_ideas">نرحب بأفكارك</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right side: Support Form -->
+                    <div class="order-form-card">
+                        <h3 class="order-form-title" data-i18n="support_form_title">تقديم طلب دعم</h3>
+                        <form class="order-form" id="supportForm">
+                            <div class="order-form-group">
+                                <label data-i18n="support_label_name">اسمك بالكامل</label>
+                                <input type="text" placeholder="مثال: أحمد محمد" required id="supportName" data-i18n="support_placeholder_name">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="support_label_phone">رقم التليفون / واتساب</label>
+                                <input type="tel" placeholder="01xxxxxxxxx" required id="supportPhone" data-i18n="support_placeholder_phone">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="order_label_email">البريد الإلكتروني</label>
+                                <input type="email" placeholder="example@domain.com" required id="supportEmailInput" data-i18n="support_placeholder_email">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="support_label_type">نوع الطلب / الاستفسار</label>
+                                <select required id="supportType">
+                                    <option value="" disabled selected data-i18n="support_select_type">اختار نوع الطلب</option>
+                                    <option value="general" data-i18n="support_type_general">استفسار عام</option>
+                                    <option value="technical" data-i18n="support_type_technical">مشكلة فنية في الموقع</option>
+                                    <option value="complaint" data-i18n="support_type_complaint">تقديم شكوى</option>
+                                    <option value="suggestion" data-i18n="support_type_suggestion">اقتراح لتطوير الخدمة</option>
+                                    <option value="after_sales" data-i18n="support_type_after_sales">خدمات ما بعد البيع ومتابعة أوردر</option>
+                                    <option value="other" data-i18n="support_type_other">أخرى</option>
+                                </select>
+                                <input type="text" placeholder="اكتب نوع الطلب هنا..." id="supportTypeOther" data-i18n="support_placeholder_other" style="width:100%; padding:10px; border-radius:8px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; font-size:0.75rem; margin-top:10px; display:none; font-family:'Cairo', sans-serif; box-sizing:border-box;">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="support_label_details">تفاصيل الرسالة</label>
+                                <textarea placeholder="اكتب مشكلتك أو استفسارك هنا بالتفصيل..." data-i18n="support_placeholder_details" rows="4" required id="supportDetails"></textarea>
+                            </div>
+                            <button type="submit" class="order-submit-btn">
+                                <span data-i18n="support_submit_btn">إرسال طلب الدعم</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                    <path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                            </button>
+                        </form>
+
+                        <!-- Step 2: Choose email (same styling) -->
+                        <div class="order-email-step" id="supportEmailStep">
+                            <p class="order-email-step__title" data-i18n="support_email_step_title">اختار الإيميل اللي هتبعت عليه الدعم</p>
+                            <div class="order-email-choices">
+                                <button class="order-email-choice" data-email="e.newgraphic@gmail.com">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    e.newgraphic@gmail.com
+                                </button>
+                                <button class="order-email-choice" data-email="graphicn249@gmail.com">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    graphicn249@gmail.com
+                                </button>
+                            </div>
+                            <button class="order-email-back" id="supportEmailBack" data-i18n="order_btn_back">← رجوع</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complaints & Suggestions Modal Overlay -->
+    <div id="complaintsModal" class="order-modal-overlay">
+        <div class="order-modal-container">
+            <button class="order-modal-close" id="complaintsModalClose" aria-label="close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="order-bg-glow"></div>
+            <div class="section-container">
+                <div class="order-inner">
+                    <!-- Left side: Info and features -->
+                    <div class="order-text reveal-up">
+                        <span class="section-label order-label" data-i18n="complaints_modal_label">صوتك مسموع</span>
+                        <h2 class="order-title" data-i18n="complaints_modal_title">مستعدين <span class="order-title--highlight">نسمعك</span></h2>
+                        <p class="order-desc" data-i18n="complaints_modal_desc">آراؤك بتساعدنا نطور خدماتنا ونتلافى المشاكل. إذا كان عندك شكوى بخصوص أي خدمة أو اقتراح إبداعي حابب تشاركنا بيه، فريق الجودة والإدارة هيتابع معاك بشكل مباشر.</p>
+                        <div class="order-features">
+                            <div class="order-feature">
+                                <span class="order-feature-icon">📢</span>
+                                <span data-i18n="complaints_feature_immediate">اهتمام فوري</span>
+                            </div>
+                            <div class="order-feature">
+                                <span class="order-feature-icon">🛡️</span>
+                                <span data-i18n="complaints_feature_confidential">سرية تامة</span>
+                            </div>
+                            <div class="order-feature">
+                                <span class="order-feature-icon">🌱</span>
+                                <span data-i18n="complaints_feature_continuous">تطوير مستمر</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right side: Form -->
+                    <div class="order-form-card">
+                        <h3 class="order-form-title" data-i18n="complaints_form_title">إرسال شكوى أو اقتراح</h3>
+                        <form class="order-form" id="complaintsForm">
+                            <div class="order-form-group">
+                                <label data-i18n="complaints_label_name">اسمك بالكامل</label>
+                                <input type="text" placeholder="مثال: أحمد محمد" required id="complaintsName" data-i18n="complaints_placeholder_name">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="support_label_phone">رقم التليفون / واتساب</label>
+                                <input type="tel" placeholder="01xxxxxxxxx" required id="complaintsPhone" data-i18n="complaints_placeholder_phone">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="order_label_email">البريد الإلكتروني</label>
+                                <input type="email" placeholder="example@domain.com" required id="complaintsEmailInput" data-i18n="complaints_placeholder_email">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="complaints_label_type">نوع الرسالة</label>
+                                <select required id="complaintsType">
+                                    <option value="" disabled selected data-i18n="complaints_select_type">اختار نوع الرسالة</option>
+                                    <option value="complaint" data-i18n="complaints_type_complaint">تقديم شكوى</option>
+                                    <option value="suggestion" data-i18n="complaints_type_suggestion">تقديم اقتراح</option>
+                                    <option value="other" data-i18n="complaints_type_other">أخرى</option>
+                                </select>
+                                <input type="text" placeholder="اكتب نوع الرسالة هنا..." id="complaintsTypeOther" data-i18n="complaints_placeholder_other" style="width:100%; padding:10px; border-radius:8px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; font-size:0.75rem; margin-top:10px; display:none; font-family:'Cairo', sans-serif; box-sizing:border-box;">
+                            </div>
+                            <div class="order-form-group">
+                                <label data-i18n="complaints_label_details">تفاصيل الشكوى أو الاقتراح</label>
+                                <textarea placeholder="اكتب تفاصيل شكواك أو اقتراحك هنا بالتفصيل..." data-i18n="complaints_placeholder_details" rows="4" required id="complaintsDetails"></textarea>
+                            </div>
+                            <button type="submit" class="order-submit-btn">
+                                <span data-i18n="complaints_submit_btn">إرسال الرسالة</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                    <path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                            </button>
+                        </form>
+
+                        <!-- Step 2: Choose email -->
+                        <div class="order-email-step" id="complaintsEmailStep">
+                            <p class="order-email-step__title" data-i18n="complaints_email_step_title">اختار الإيميل الإداري للإرسال</p>
+                            <div class="order-email-choices">
+                                <button class="order-email-choice" data-email="e.newgraphic@gmail.com">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    e.newgraphic@gmail.com
+                                </button>
+                                <button class="order-email-choice" data-email="graphicn249@gmail.com">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    graphicn249@gmail.com
+                                </button>
+                            </div>
+                            <button class="order-email-back" id="complaintsEmailBack" data-i18n="order_btn_back">← رجوع</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="hero" class="about-section hero-promoted">
+        <video class="hero-background-video" autoplay muted loop playsinline>
+            <source src="assets/background/lv_0_20260514120337.mp4" type="video/mp4">
+        </video>
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-content reveal-up">
+                    <span class="section-label" data-i18n="about_label"></span>
+                    <h2 class="section-title bungee-title">
+                        <span class="title-highlight-purple bungee-line">New Graphic</span>
+                        <span class="title-highlight-orange bungee-line" style="display: block;">From Idea to</span>
+                        <span class="title-highlight-orange bungee-line" style="display: block; padding-left: 0; margin-left: 0;">Impact</span>
+                    </h2>
+                    <p class="about-text" data-i18n="about_p1"></p>
+                    <p class="about-text" data-i18n="about_p2"></p>
+                    <button class="cta-link cta-link--purple" id="openProfileBtn" style="border:none; cursor:pointer;">
+                        <span class="cta-arrow">←</span>
+                        <span data-i18n="about_cta"></span>
+                    </button>
+                </div>
+                <div class="about-typewriter-box reveal-left">
+                    <div class="typewriter-content">
+                        <span class="typewriter-label" id="typewriterLabel"></span>
+                        <p class="typewriter-text" id="typewriterText"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-container">
+            <header class="section-header reveal-up">
+                <span class="section-label" data-i18n="works_label"></span>
+                <h2 class="section-title"><span data-i18n="works_title_1"></span> <b data-i18n="works_title_2"></b></h2>
+            </header>
+            <div class="portfolio-grid">
+                <!-- مطبوعات -->
+                <article id="portfolio-prints" class="portfolio-item reveal-down" data-category="prints">
+                    <div class="portfolio-item-bg"
+                        style="background: linear-gradient(135deg, #6B3FA0 0%, #4A2D70 100%);">
+                        <div class="portfolio-item-content">
+                            <span class="portfolio-tag" data-i18n="nav_print">مطبوعات</span>
+                        </div>
+                        <div class="portfolio-item-visual">
+                            <div class="portfolio-slideshow" id="slideshow-prints"></div>
+                        </div>
+                    </div>
+                </article>
+                <!-- giveaway -->
+                <article id="portfolio-giveaway" class="portfolio-item reveal-right" data-category="giveaway">
+                    <div class="portfolio-item-bg"
+                        style="background: linear-gradient(135deg, #2D3436 0%, #636E72 100%);">
+                        <div class="portfolio-item-content">
+                            <span class="portfolio-tag" data-i18n="nav_giveaway">Giveaway</span>
+                        </div>
+                        <div class="portfolio-item-visual">
+                            <div class="portfolio-slideshow" id="slideshow-giveaway"></div>
+                        </div>
+                    </div>
+                </article>
+                <!-- uniforms -->
+                <article id="portfolio-uniforms" class="portfolio-item reveal-left" data-category="uniforms">
+                    <div class="portfolio-item-bg"
+                        style="background: linear-gradient(135deg, #0C1E3A 0%, #1A3A5C 100%);">
+                        <div class="portfolio-item-content">
+                            <span class="portfolio-tag" data-i18n="nav_uniforms">Uniforms</span>
+                        </div>
+                        <div class="portfolio-item-visual">
+                            <div class="portfolio-slideshow" id="slideshow-uniforms"></div>
+                        </div>
+                    </div>
+                </article>
+                <!-- دروع -->
+                <article id="portfolio-trophies" class="portfolio-item reveal-up" data-category="trophies">
+                    <div class="portfolio-item-bg"
+                        style="background: linear-gradient(135deg, #8E1C22 0%, #530B0F 100%);">
+                        <div class="portfolio-item-content">
+                            <span class="portfolio-tag" data-i18n="nav_trophies">دروع</span>
+                        </div>
+                        <div class="portfolio-item-visual">
+                            <div class="portfolio-slideshow" id="slideshow-trophies"></div>
+                        </div>
+                    </div>
+                </article>
+                <!-- outdoors -->
+                <article id="portfolio-outdoor" class="portfolio-item portfolio-item--wide reveal-up" data-category="outdoors">
+                    <div class="portfolio-item-bg"
+                        style="background: linear-gradient(135deg, #D35400 0%, #E67E22 100%);">
+                        <div class="portfolio-item-content">
+                            <span class="portfolio-tag" data-i18n="nav_outdoor">Outdoor</span>
+                        </div>
+                        <div class="portfolio-item-visual">
+                            <div class="portfolio-slideshow" id="slideshow-outdoors"></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- "شوف كل اعمالنا" Banner -->
+            <div class="portfolio-see-more-banner reveal-up" id="portfolioSeeAll">
+                <span class="banner-text" data-i18n="see_all_works">شوف كل أعمالنا</span>
+                <svg class="banner-arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="clients-section" class="clients-section cinematic">
+        <div class="clients-section-bg" id="clientsSectionBg"></div>
+        <div class="section-container">
+            <header class="section-header section-header--center reveal-up">
+                <span class="section-label" data-i18n="nav_clients"></span>
+                <h2 class="section-title" data-i18n="partners_title"></h2>
+            </header>
+        </div>
+
+        <!-- Names bar -->
+        <div class="cn-names-bar reveal-up" id="cnNamesBar">
+            <div class="cn-names-inner" id="cnNamesInner"></div>
+        </div>
+
+        <!-- Divider line + dot -->
+        <div class="cn-divider reveal-up">
+            <div class="cn-divider-line"></div>
+            <div class="cn-divider-dot" id="cnDividerDot"></div>
+        </div>
+
+        <!-- Cards row -->
+        <div class="cn-cards-row reveal-up" id="cnCardsRow"></div>
+
+        <!-- Active info -->
+        <div class="cn-info reveal-up" id="cnInfo">
+            <h3 class="cn-info-title" id="cnInfoTitle"></h3>
+            <p class="cn-info-desc" id="cnInfoDesc"></p>
+        </div>
+
+        <!-- Arrows -->
+        <button class="cn-arrow cn-arrow--prev reveal-left" id="cnPrev" aria-label="prev">&#8592;</button>
+        <button class="cn-arrow cn-arrow--next reveal-right" id="cnNext" aria-label="next">&#8594;</button>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="section-container">
+            <div class="cta-content">
+                <span class="section-label section-label--light cta-reveal" data-cta-delay="0"
+                    data-i18n="cta_label"></span>
+                <h2 class="cta-title cta-reveal" data-cta-delay="150" data-i18n="cta_title"></h2>
+                <p class="cta-desc cta-reveal" data-cta-delay="300" data-i18n="cta_desc"></p>
+                <div class="cta-actions cta-reveal" data-cta-delay="450">
+                    <button id="openEmailModal" class="cta-button">
+                        <span class="cta-button-text" data-i18n="nav_contact"></span>
+                        <span class="cta-button-icon">←</span>
+                    </button>
+                    <a href="https://wa.me/201094767060" class="cta-button cta-button--outline" target="_blank">
+                        <span class="cta-button-text" data-i18n="btn_whatsapp">واتساب</span>
+                        <span class="cta-button-icon">←</span>
+                    </a>
+                </div>
+                <div class="cta-tags cta-reveal" data-cta-delay="600">
+                    <span class="cta-tag" data-i18n="nav_outdoor"></span>
+                    <span class="cta-tag" data-i18n="nav_print"></span>
+                    <span class="cta-tag" data-i18n="nav_digital"></span>
+                    <span class="cta-tag" data-i18n="nav_giveaway"></span>
+                    <span class="cta-tag" data-i18n="tag_exhibitions"></span>
+                    <span class="cta-tag" data-i18n="tag_identity"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Modal -->
+    <div id="emailModal" class="email-modal-overlay">
+        <div class="email-modal">
+            <button class="email-modal-close" id="closeEmailModal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <p class="email-modal-label" data-i18n="email_modal_label"></p>
+            <h3 class="email-modal-title" data-i18n="email_modal_title"></h3>
+            <div class="email-modal-options">
+                <a href="https://mail.google.com/mail/?view=cm&to=e.newgraphic@gmail.com" target="_blank" class="email-modal-option">
+                    <span class="email-modal-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </span>
+                    <span class="email-modal-address">e.newgraphic@gmail.com</span>
+                    <span class="email-modal-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&to=graphicn249@gmail.com" target="_blank" class="email-modal-option">
+                    <span class="email-modal-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </span>
+                    <span class="email-modal-address">graphicn249@gmail.com</span>
+                    <span class="email-modal-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+
+        <!-- Big slogan block -->
+        <div class="footer-hero">
+            <div class="footer-hero-bg"></div>
+            <div class="footer-hero-content">
+                <p class="footer-eyebrow">— NEW GRAPHIC —</p>
+                <h2 class="footer-hero-headline" dir="ltr">From Idea to <span
+                        class="footer-hero-highlight">Impact</span></h2>
+                <a href="#contact" class="footer-cta-big">
+                    <span data-i18n="nav_contact"></span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+            <!-- Rotating logo watermark -->
+            <div class="footer-watermark">
+                <img src="assets/logo.png" alt="" aria-hidden="true">
+            </div>
+        </div>
+
+        <!-- Marquee strip -->
+        <div class="footer-marquee" aria-hidden="true">
+            <div class="footer-marquee-inner">
+                <span data-i18n="marquee_outdoor"></span><span class="footer-marquee-dot">✦</span>
+                <span data-i18n="marquee_print"></span><span class="footer-marquee-dot">✦</span>
+                <span data-i18n="marquee_digital"></span><span class="footer-marquee-dot">✦</span>
+                <span data-i18n="marquee_giveaway"></span><span class="footer-marquee-dot">✦</span>
+                <span data-i18n="marquee_exhibitions"></span><span class="footer-marquee-dot">✦</span>
+                <span data-i18n="marquee_identity"></span><span class="footer-marquee-dot">✦</span>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bar">
+            <div class="footer-bar-inner">
+
+                <!-- Logo -->
+                <a href="#" class="footer-bar-logo">
+                    <img src="assets/logo.png" alt="New Graphic Co.">
+                </a>
+
+                <!-- Nav links -->
+                <nav class="footer-bar-nav">
+                    <a href="#hero" data-i18n="nav_about"></a>
+                    <a href="#clients" data-i18n="nav_clients"></a>
+                    <a href="#" id="footerSupportBtn" data-i18n="nav_support">الدعم</a>
+                    <a href="#hero" data-i18n="nav_location">الموقع</a>
+                    <a href="#" id="footerComplaintsBtn" data-i18n="nav_complaints">الشكاوى والاقتراحات</a>
+                    <a href="https://mail.google.com/mail/?view=cm&to=e.newgraphic@gmail.com" target="_blank" class="footer-email-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        e.newgraphic@gmail.com
+                    </a>
+                    <a href="https://mail.google.com/mail/?view=cm&to=graphicn249@gmail.com" target="_blank" class="footer-email-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        graphicn249@gmail.com
+                    </a>
+                    <a href="tel:+201094767060" dir="ltr">+20 109 476 7060</a>
+                </nav>
+
+                <!-- Social -->
+                <div class="footer-bar-social">
+                    <a href="https://www.facebook.com/share/1AZ9NAFwuU/" aria-label="Facebook" target="_blank"
+                        class="footer-bar-social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/newgraphic.ads?igsh=bHRkbDhtN3R3Nmx5" aria-label="Instagram"
+                        target="_blank" class="footer-bar-social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@newgraphic_co?_r=1&_t=ZS-94jtTSrFMqD" aria-label="TikTok"
+                        target="_blank" class="footer-bar-social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+            <div class="footer-bar-copy">
+                <p>© 2026 New Graphic Co. <span data-i18n="footer_rights"></span></p>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Dynamic Clients Page -->
+    <section id="clientsPage" class="clients-page">
+        <div class="clients-page-container">
+            <header class="clients-page-header reveal-up">
+                <span class="section-label" data-i18n="nav_clients"
+                    style="color: white; opacity: 0.9;"></span>
+                <h2 class="section-title"><span data-i18n="partners_title"></span></h2>
+            </header>
+
+            <!-- Featured Clients - always visible -->
+            <div id="featuredClientsSection" class="featured-clients-section open">
+                                <div class="featured-clients-grid">
+                    <div class="featured-client-card" data-client="El Masria Elmasria Development">El Masria Elmasria Development</div>
+                    <div class="featured-client-card" data-client="KEWAN">KEWAN</div>
+                    <div class="featured-client-card" data-client="ROWAD MODERN ENGINEERING">ROWAD MODERN ENGINEERING</div>
+                    <div class="featured-client-card" data-client="Al Baraka">Al Baraka</div>
+                    <div class="featured-client-card" data-client="Awadi Urban Development">Awadi Urban Development</div>
+                    <div class="featured-client-card" data-client="Suez Canal Authority">Suez Canal Authority</div>
+                    <div class="featured-client-card" data-client="MacTronic Services">MacTronic Services</div>
+                    <div class="featured-client-card" data-client="RakAEZ Development">RakAEZ Development</div>
+                    <div class="featured-client-card" data-client="AWAAED Development">AWAAED Development</div>
+                    <div class="featured-client-card" data-client="EASY WAY">EASY WAY</div>
+                    <div class="featured-client-card" data-client="الفيروز" data-i18n="client_fayrouz">الفيروز</div>
+                    <div class="featured-client-card" data-client="Integrated Logistics Group ILG">Integrated Logistics Group ILG</div>
+                    <div class="featured-client-card" data-client="SALAM PROPERTIES">SALAM PROPERTIES</div>
+                    <div class="featured-client-card" data-client="AUD Urban Development">AUD Urban Development</div>
+                    <div class="featured-client-card" data-client="El Shenawy Real Estate">El Shenawy Real Estate</div>
+                    <div class="featured-client-card" data-client="HEC">HEC</div>
+                </div>
+                    <div class="featured-client-card" data-client="KEWAN">KEWAN</div>
+                    <div class="featured-client-card" data-client="ROWAD MODERN ENGINEERING">ROWAD MODERN ENGINEERING</div>
+                    <div class="featured-client-card" data-client="Al Baraka">Al Baraka</div>
+                    <div class="featured-client-card" data-client="Awadi Urban Development">Awadi Urban Development</div>
+                    <div class="featured-client-card" data-client="Suez Canal Authority">Suez Canal Authority</div>
+                    <div class="featured-client-card" data-client="MacTronic Services">MacTronic Services</div>
+                    <div class="featured-client-card" data-client="RakAEZ Development">RakAEZ Development</div>
+                    <div class="featured-client-card" data-client="AWAAED Development">AWAAED Development</div>
+                    <div class="featured-client-card" data-client="EASY WAY">EASY WAY</div>
+                    <div class="featured-client-card" data-client="الفيروز" data-i18n="client_fayrouz">الفيروز</div>
+                    <div class="featured-client-card" data-client="Integrated Logistics Group ILG">Integrated Logistics Group ILG</div>
+                    <div class="featured-client-card" data-client="SALAM PROPERTIES">SALAM PROPERTIES</div>
+                    <div class="featured-client-card" data-client="AUD Urban Development">AUD Urban Development</div>
+                    <div class="featured-client-card" data-client="El Shenawy Real Estate">El Shenawy Real Estate</div>
+                    <div class="featured-client-card" data-client="HEC">HEC</div>
+                </div>
+            </div>
+
+            <!-- Gallery Overlay -->
+            <div id="featuredGalleryOverlay" class="featured-gallery-overlay">
+                <div class="featured-gallery-header">
+                    <h2 id="featuredGalleryTitle" class="featured-gallery-title"></h2>
+                    <button class="featured-gallery-close" id="featuredGalleryClose">✕</button>
+                </div>
+                <div id="featuredGalleryGrid" class="featured-gallery-grid"></div>
+            </div>
+
+            <!-- List of Clients for selected province -->
+            <div id="clientsView" class="clients-view">
+                <div class="clients-view-header">
+                    <h3 id="selectedProvinceName" class="province-name"></h3>
+                    <button class="back-provinces-btn" id="backToProvinces">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-arrow-icon">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        <span data-i18n="btn_back"></span>
+                    </button>
+                </div>
+                <div id="clientListGrid" class="client-list-grid">
+                    <!-- Dynamic Clients -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Social Page -->
+    <section id="socialPage" class="choices-page social-page">
+        <button class="choices-close-btn" id="closeSocialPage" aria-label="إغلاق">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="choices-page-container">
+            <header class="choices-page-header reveal-up">
+                <span class="section-label" data-i18n="works_label"></span>
+                <h2 class="section-title"><span data-i18n="works_title_2"></span></h2>
+            </header>
+
+            <div id="socialGrid" class="choices-grid">
+                <div class="choice-card animate-fade-in" data-social-category="prints">
+                    <div class="choice-card-bg"
+                        style="background-image: url('assets/cover_prints.png')"></div>
+                    <div class="choice-card-overlay"></div>
+                    <div class="choice-card-content">
+                        <h3 class="choice-title" data-i18n="nav_print"></h3>
+                        <span class="choice-arrow"></span>
+                    </div>
+                </div>
+                <div class="choice-card animate-fade-in" data-social-category="giveaway">
+                    <div class="choice-card-bg"
+                        style="background-image: url('assets/cover_giveaway.png')"></div>
+                    <div class="choice-card-overlay"></div>
+                    <div class="choice-card-content">
+                        <h3 class="choice-title" data-i18n="nav_giveaway"></h3>
+                        <span class="choice-arrow"></span>
+                    </div>
+                </div>
+                <div class="choice-card animate-fade-in" data-social-category="uniforms">
+                    <div class="choice-card-bg"
+                        style="background-image: url('assets/cover_uniforms.png')"></div>
+                    <div class="choice-card-overlay"></div>
+                    <div class="choice-card-content">
+                        <h3 class="choice-title" data-i18n="nav_uniforms"></h3>
+                        <span class="choice-arrow"></span>
+                    </div>
+                </div>
+                <div class="choice-card animate-fade-in" data-social-category="trophies">
+                    <div class="choice-card-bg"
+                        style="background-image: url('assets/cover_trophies.png')"></div>
+                    <div class="choice-card-overlay"></div>
+                    <div class="choice-card-content">
+                        <h3 class="choice-title" data-i18n="nav_trophies"></h3>
+                        <span class="choice-arrow"></span>
+                    </div>
+                </div>
+                <div class="choice-card choice-card--wide animate-fade-in" data-social-category="outdoors">
+                    <div class="choice-card-bg"
+                        style="background-image: url('assets/portfolio/%D9%85%D8%B7%D8%A8%D9%88%D8%B9%D8%A7%D8%AA/outdoors/sea_gate.png')"></div>
+                    <div class="choice-card-overlay"></div>
+                    <div class="choice-card-content">
+                        <h3 class="choice-title" data-i18n="nav_outdoor"></h3>
+                        <span class="choice-arrow"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail View -->
+            <div id="socialDetailView" class="portfolio-detail-view" style="display: none;">
+                <div class="detail-view-header">
+                    <h3 id="socialCategoryName" class="category-name"></h3>
+                    <button class="cta-link" id="backToSocial" style="font-size: 0.9rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-arrow-icon">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        <span data-i18n="btn_back"></span>
+                    </button>
+                </div>
+                <div id="socialGalleryGrid" class="portfolio-gallery-grid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Identity Page Overlay -->
+    <section id="identityPage" class="choices-page identity-page">
+        <button class="choices-close-btn" id="closeIdentityPage" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="choices-page-container">
+            <!-- 1. Grid of Choices View -->
+            <div id="identityChoicesGrid" class="identity-choices-grid-view">
+                <header class="choices-page-header">
+                    <span class="section-label" data-i18n="works_label">أعمالنا</span>
+                    <h2 class="section-title"><span data-i18n="identity_title">الهوية البصرية</span></h2>
+                </header>
+                <div class="choices-grid">
+                    <!-- Arkan -->
+                    <div class="choice-card animate-fade-in" data-identity-client="arkan">
+                        <div class="choice-card-bg" style="background-image: url('assets/pdf-pages/arkan/page-1-thumb.jpg')"></div>
+                        <div class="choice-card-overlay"></div>
+                        <div class="choice-card-content">
+                            <h3 class="choice-title">Arkan</h3>
+                            <span class="choice-arrow"></span>
+                        </div>
+                    </div>
+                    <!-- Velora -->
+                    <div class="choice-card animate-fade-in" data-identity-client="velora">
+                        <div class="choice-card-bg" style="background-image: url('assets/pdf-pages/velora/page-1-thumb.jpg')"></div>
+                        <div class="choice-card-overlay"></div>
+                        <div class="choice-card-content">
+                            <h3 class="choice-title">Velora</h3>
+                            <span class="choice-arrow"></span>
+                        </div>
+                    </div>
+                    <!-- Elite Gym -->
+                    <div class="choice-card animate-fade-in" data-identity-client="elite_gym">
+                        <div class="choice-card-bg" style="background-image: url('assets/pdf-pages/elite_gym/page-1-thumb.jpg')"></div>
+                        <div class="choice-card-overlay"></div>
+                        <div class="choice-card-content">
+                            <h3 class="choice-title">Elite Gym</h3>
+                            <span class="choice-arrow"></span>
+                        </div>
+                    </div>
+                    <!-- Nile -->
+                    <div class="choice-card animate-fade-in" data-identity-client="nile">
+                        <div class="choice-card-bg" style="background-image: url('assets/pdf-pages/nile/page-1-thumb.jpg')"></div>
+                        <div class="choice-card-overlay"></div>
+                        <div class="choice-card-content">
+                            <h3 class="choice-title">Nile</h3>
+                            <span class="choice-arrow"></span>
+                        </div>
+                    </div>
+                    <!-- German Saudi -->
+                    <div class="choice-card animate-fade-in" data-identity-client="german_saudi">
+                        <div class="choice-card-bg" style="background-image: url('assets/pdf-pages/german_saudi/page-1-thumb.jpg')"></div>
+                        <div class="choice-card-overlay"></div>
+                        <div class="choice-card-content">
+                            <h3 class="choice-title">German Saudi</h3>
+                            <span class="choice-arrow"></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Emar rk -->
+                    <div class="choice-card animate-fade-in" data-identity-client="emar_rk">
+                        <div class="choice-card-bg" style="background-image: url('assets/pdf-pages/emar_rk/page-1-thumb.jpg')"></div>
+                        <div class="choice-card-overlay"></div>
+                        <div class="choice-card-content">
+                            <h3 class="choice-title">Emar rk</h3>
+                            <span class="choice-arrow"></span>
+                        </div>
+                    </div>
+                    <!-- Promise Mall -->
+                    <div class="choice-card animate-fade-in" data-identity-client="promise_mall">
+                        <div class="choice-card-bg" style="background-image: url('assets/pdf-pages/promise_mall/page-1-thumb.jpg')"></div>
+                        <div class="choice-card-overlay"></div>
+                        <div class="choice-card-content">
+                            <h3 class="choice-title">Promise Mall</h3>
+                            <span class="choice-arrow"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Case Study / Detail View (Baianat Style) -->
+            <div id="identityDetailView" class="identity-detail-view" style="display: none;">
+                <!-- Floating Motion Graphics / Abstract Shapes (Baianat Style) -->
+                <div class="identity-bg-shapes">
+                    <svg class="motion-shape shape-wave-1" viewBox="0 0 1440 320" fill="none">
+                        <path d="M0,160 C320,300 640,20 960,180 C1280,340 1380,120 1440,100" stroke="rgba(245,166,35,0.12)" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                    <svg class="motion-shape shape-wave-2" viewBox="0 0 1440 320" fill="none">
+                        <path d="M0,80 C240,240 720,0 1100,200 C1300,300 1380,120 1440,60" stroke="rgba(26,58,255,0.08)" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    <svg class="motion-shape shape-circle-1" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="80" stroke="rgba(245,166,35,0.06)" stroke-width="2" stroke-dasharray="10 5" fill="none"/>
+                    </svg>
+                    <svg class="motion-shape shape-badge" viewBox="0 0 120 120">
+                        <path d="M60,10 L75,35 L105,35 L85,55 L95,85 L60,70 L25,85 L35,55 L15,35 L45,35 Z" fill="rgba(245,166,35,0.03)" stroke="rgba(245,166,35,0.08)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="detail-view-header" style="margin-bottom: 2rem; display: flex; justify-content: flex-end;">
+                    <button class="cta-link" id="backToIdentityGrid" style="font-size: 0.9rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-arrow-icon">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        <span data-i18n="back_to_identities">رجوع</span>
+                    </button>
+                </div>
+                <!-- Images container (vertical scroll gallery) -->
+                <div id="identityPagesContainer" class="identity-pages-container">
+                    <!-- page images will be dynamically generated by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Company Profile Modal -->
+    <div id="profileModal" class="profile-modal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="closeProfileModal"><span></span></button>
+            <div class="modal-content-wrapper">
+                <div class="about-extra-content revealed">
+                    
+                    <div class="about-block">
+                        <h3 class="about-block-title" data-i18n="about_story_title"></h3>
+                        <p class="about-text" data-i18n="about_story_p"></p>
+                    </div>
+
+                    <div class="about-block">
+                        <h3 class="about-block-title" data-i18n="about_services_title"></h3>
+                        <ul class="about-services-list">
+                            <li data-i18n="about_s1"></li>
+                            <li data-i18n="about_s2"></li>
+                            <li data-i18n="about_s3"></li>
+                            <li data-i18n="about_s4"></li>
+                            <li data-i18n="about_s5"></li>
+                            <li data-i18n="about_s6"></li>
+                            <li data-i18n="about_s7"></li>
+                            <li data-i18n="about_s8"></li>
+                            <li data-i18n="about_s9"></li>
+                        </ul>
+                    </div>
+
+                    <div class="about-pillars">
+                        <div class="pillar-card">
+                            <h4 class="pillar-title" data-i18n="about_vision_title"></h4>
+                            <p class="pillar-text" data-i18n="about_vision_p"></p>
+                        </div>
+                        <div class="pillar-card">
+                            <h4 class="pillar-title" data-i18n="about_mission_title"></h4>
+                            <p class="pillar-text" data-i18n="about_mission_p"></p>
+                        </div>
+                        <div class="pillar-card">
+                            <h4 class="pillar-title" data-i18n="about_values_title"></h4>
+                            <p class="pillar-text" data-i18n="about_values_p"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="assets/portfolio-data.js?v=1.2.9"></script>
+    <script src="script.js?v=1.2.9"></script>
+
+    <!-- Floating Mobile Order Button -->
+    <button id="mobileFloatingOrderBtn" class="mobile-floating-order" aria-label="Order Now">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        
+    </button>
+
+</body>
+
+</html>

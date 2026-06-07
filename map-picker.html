@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تحديد موقعك - New Graphic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --orange: #f5a623;
+            --dark-bg: #121214;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Cairo', sans-serif;
+            overflow: hidden;
+            background-color: var(--dark-bg);
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        .header-bar {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(18, 18, 20, 0.95);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            font-size: 0.88rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            width: max-content;
+            max-width: 90%;
+            font-weight: 600;
+        }
+        .search-container {
+            position: absolute;
+            top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 8px;
+            width: 90%;
+            max-width: 440px;
+        }
+        .search-input {
+            flex: 1;
+            padding: 10px 18px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(18, 18, 20, 0.95);
+            color: #fff;
+            font-family: 'Cairo', sans-serif;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            outline: none;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+        }
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .search-button {
+            padding: 10px 22px;
+            border-radius: 25px;
+            border: none;
+            background: var(--orange);
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        .search-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.45);
+        }
+        .search-button:active {
+            transform: translateY(0);
+        }
+        /* Custom styling for Leaflet controls to match theme slightly */
+        .leaflet-bar {
+            border: 1px solid rgba(0,0,0,0.15) !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-bar">
+        📍 حرك الخريطة واضغط على موقعك (منزلك/شركتك) بدقة لوضع الدبوس وحفظه تلقائياً.
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchQuery" class="search-input" placeholder="اكتب اسم منطقة، شارع، مسجد أو معلم للبحث...">
+        <button id="searchBtn" class="search-button">بحث</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Damietta/Egypt center as starting coordinates
+        const defaultCoords = [31.4175, 31.8144];
+        
+        // Initialize map with high zoom level (16) to show street-level details
+        const map = L.map('map', {
+            center: defaultCoords,
+            zoom: 16, 
+            zoomControl: true
+        });
+
+        // Use standard detailed light OpenStreetMap (Mapnik) showing POIs like mosques, stores, etc.
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        let marker = null;
+
+        map.on('click', function(e) {
+            const { lat, lng } = e.latlng;
+            const googleMapsUrl = `https://www.google.com/maps?q=${lat.toFixed(6)},${lng.toFixed(6)}`;
+
+            if (marker) {
+                marker.setLatLng(e.latlng);
+            } else {
+                marker = L.marker(e.latlng).addTo(map);
+            }
+
+            let success = false;
+            try {
+                if (window.opener && !window.opener.closed) {
+                    const parentInput = window.opener.document.getElementById('orderAddressMapUrl');
+                    if (parentInput) {
+                        parentInput.value = googleMapsUrl;
+                        parentInput.dispatchEvent(new Event('input', { bubbles: true }));
+                        success = true;
+                    }
+                    window.opener.focus();
+                }
+            } catch (err) {
+                console.error("Parent window access blocked (testing locally via file:// protocol):", err);
+            }
+
+            if (success) {
+                // Close map popup after placing pin
+                setTimeout(() => {
+                    window.close();
+                }, 600);
+            } else {
+                // Show a nice copy box inside the map-picker window for local testing fallback
+                showLocalFallback(googleMapsUrl);
+            }
+        });
+
+        function showLocalFallback(url) {
+            let fallbackModal = document.getElementById('fallbackModal');
+            if (!fallbackModal) {
+                fallbackModal = document.createElement('div');
+                fallbackModal.id = 'fallbackModal';
+                fallbackModal.style.position = 'fixed';
+                fallbackModal.style.top = '0';
+                fallbackModal.style.left = '0';
+                fallbackModal.style.width = '100%';
+                fallbackModal.style.height = '100%';
+                fallbackModal.style.backgroundColor = 'rgba(0,0,0,0.85)';
+                fallbackModal.style.zIndex = '9999';
+                fallbackModal.style.display = 'flex';
+                fallbackModal.style.alignItems = 'center';
+                fallbackModal.style.justifyContent = 'center';
+                fallbackModal.style.padding = '20px';
+                fallbackModal.style.boxSizing = 'border-box';
+                
+                fallbackModal.innerHTML = `
+                    <div style="background:#1e1e24; border: 1px solid var(--orange); border-radius:15px; padding:25px; max-width:450px; width:100%; text-align:center; color:#fff; box-shadow:0 10px 30px rgba(0,0,0,0.5); direction:rtl; font-family:'Cairo', sans-serif;">
+                        <div style="font-size:2rem; margin-bottom:15px;">⚠️</div>
+                        <h3 style="margin-top:0; color:var(--orange); font-size:1.15rem;">تنبيه تشغيل محلي</h3>
+                        <p style="font-size:0.85rem; line-height:1.6; color:rgba(255,255,255,0.7); margin-bottom:20px;">
+                            لأنك تقوم بتشغيل الموقع كملف محلي (file://) مباشرة، يمنع المتصفح نقل الرابط تلقائياً.<br>
+                            <strong>(سيعمل النقل التلقائي بنسبة 100% بمجرد رفع الموقع على الإنترنت أو تشغيل السيرفر).</strong>
+                        </p>
+                        <input type="text" id="fallbackUrlInput" readonly style="width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.15); background:rgba(0,0,0,0.2); color:var(--orange); text-align:center; margin-bottom:15px; font-size:0.8rem; outline:none; font-weight:bold;">
+                        <button id="copyFallbackBtn" style="width:100%; padding:12px; border-radius:8px; border:none; background:var(--orange); color:#000; font-weight:bold; cursor:pointer; transition:all 0.3s; font-family:'Cairo', sans-serif;">نسخ الرابط</button>
+                        <button id="closeFallbackBtn" style="width:100%; margin-top:8px; padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,0.2); background:transparent; color:#fff; cursor:pointer; font-size:0.8rem; font-family:'Cairo', sans-serif;">إغلاق الخريطة</button>
+                    </div>
+                `;
+                document.body.appendChild(fallbackModal);
+                
+                document.getElementById('copyFallbackBtn').addEventListener('click', () => {
+                    const input = document.getElementById('fallbackUrlInput');
+                    input.select();
+                    document.execCommand('copy');
+                    const btn = document.getElementById('copyFallbackBtn');
+                    btn.textContent = 'تم النسخ! ✅';
+                    btn.style.backgroundColor = '#4CAF50';
+                    btn.style.color = '#fff';
+                    setTimeout(() => {
+                        btn.textContent = 'نسخ الرابط';
+                        btn.style.backgroundColor = 'var(--orange)';
+                        btn.style.color = '#000';
+                    }, 1500);
+                });
+                
+                document.getElementById('closeFallbackBtn').addEventListener('click', () => {
+                    window.close();
+                });
+            }
+            
+            document.getElementById('fallbackUrlInput').value = url;
+            fallbackModal.style.display = 'flex';
+        }
+
+        // Search action
+        document.getElementById('searchBtn').addEventListener('click', doSearch);
+        document.getElementById('searchQuery').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') doSearch();
+        });
+
+        function doSearch() {
+            const query = document.getElementById('searchQuery').value.trim();
+            if (!query) return;
+
+            // Call OpenStreetMap free Nominatim search engine focusing inside Egypt bounds
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=eg&limit=1`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        const lat = parseFloat(data[0].lat);
+                        const lon = parseFloat(data[0].lon);
+                        
+                        // Set map view directly zoom 17 (close enough to see landmarks/mosques)
+                        map.setView([lat, lon], 17);
+                        
+                        if (marker) {
+                            marker.setLatLng([lat, lon]);
+                        } else {
+                            marker = L.marker([lat, lon]).addTo(map);
+                        }
+                    } else {
+                        alert('عذراً، لم يتم العثور على نتائج. يرجى تجربة كتابة اسم المنطقة أو المعلم بوضوح.');
+                    }
+                })
+                .catch(err => {
+                    console.error('Nominatim search error:', err);
+                });
+        }
+    </script>
+</body>
+</html>
