@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيناريو إعلان بن الألفي - الفراعنة | نيو جرافيك</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gold: #c5a059;
+            --primary-gold-glow: rgba(197, 160, 89, 0.4);
+            --bg-dark: #0f0b07;
+            --bg-card: rgba(28, 20, 14, 0.6);
+            --border-color: rgba(197, 160, 89, 0.15);
+            --text-light: #f5f0eb;
+            --text-muted: #b5a99e;
+            --accent-orange: #d97706;
+            --bg-table-header: rgba(197, 160, 89, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.03) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-container {
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .logo-placeholder {
+            border: 2px solid var(--primary-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px var(--primary-gold-glow);
+            font-family: 'Outfit', sans-serif;
+            background: rgba(197, 160, 89, 0.05);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 30%, var(--primary-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* Egyptian Theme Badge */
+        .badge-egypt {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(217, 119, 6, 0.15);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            color: #f59e0b;
+            padding: 0.35rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .badge-egypt::before {
+            content: "👑";
+            font-size: 1rem;
+        }
+
+        /* Context Card */
+        .context-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .context-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-gold);
+        }
+
+        .context-card h3 {
+            color: var(--primary-gold);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .context-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .context-item {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .context-item strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .context-item span {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* Interactive Table */
+        .table-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            margin-bottom: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+        }
+
+        th {
+            background: var(--bg-table-header);
+            color: var(--primary-gold);
+            font-weight: 700;
+            padding: 1.25rem 1rem;
+            font-size: 0.95rem;
+            border-bottom: 2px solid var(--border-color);
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+            font-size: 0.92rem;
+            transition: background 0.3s ease;
+        }
+
+        tr:hover td {
+            background: rgba(197, 160, 89, 0.02);
+        }
+
+        /* Table Column Widths */
+        .col-sec {
+            width: 8%;
+            text-align: center;
+            font-weight: 700;
+            color: var(--primary-gold);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+        }
+        .col-seen {
+            width: 38%;
+        }
+        .col-heard {
+            width: 24%;
+        }
+        .col-prompt {
+            width: 30%;
+        }
+
+        .sfx-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Prompt Box Styling */
+        .prompt-box {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 0.85rem;
+            font-family: 'Outfit', monospace;
+            font-size: 0.8rem;
+            color: #a7f3d0;
+            position: relative;
+            direction: ltr;
+            text-align: left;
+            margin-top: 0.5rem;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .prompt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #4ade80;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .prompt-text {
+            word-break: break-word;
+            line-height: 1.4;
+            color: #d1fae5;
+            font-size: 0.78rem;
+            background: rgba(0,0,0,0.2);
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .btn-copy {
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Cairo', sans-serif;
+            align-self: flex-end;
+            margin-top: 0.75rem;
+        }
+
+        .btn-copy:hover {
+            background: var(--primary-gold);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px var(--primary-gold-glow);
+        }
+
+        /* AI Guide Section */
+        .ai-guide {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .ai-guide h3 {
+            color: var(--primary-gold);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .ai-guide-step {
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-guide-step h4 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-guide-step h4::before {
+            content: "◆";
+            color: var(--primary-gold);
+        }
+
+        .ai-guide-step p, .ai-guide-step ul {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-left: 1.5rem;
+        }
+
+        .ai-guide-step ul {
+            list-style-type: square;
+            padding-right: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .ai-guide-step li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Footer Info */
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        .btn-back-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .btn-back-main:hover {
+            background: var(--primary-gold);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--primary-gold-glow);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            h1 { font-size: 1.8rem; }
+            td, th { padding: 1rem 0.75rem; }
+            table, thead, tbody, th, td, tr { 
+                display: block; 
+            }
+            thead { display: none; }
+            tr {
+                border-bottom: 2px solid var(--border-color);
+                padding: 1.5rem 0.5rem;
+            }
+            td {
+                border: none;
+                padding: 0.5rem 0;
+                width: 100% !important;
+            }
+            .col-sec {
+                text-align: right;
+                font-size: 1.3rem;
+                border-bottom: 1px dashed rgba(197, 160, 89, 0.2);
+                padding-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .col-sec::before {
+                content: "التوقيت: ";
+                font-size: 0.9rem;
+                color: var(--text-muted);
+                font-weight: normal;
+                font-family: 'Cairo', sans-serif;
+            }
+            .col-seen::before {
+                content: "ما يراه المشاهد (البصريات):";
+                display: block;
+                font-weight: 700;
+                color: var(--primary-gold);
+                font-size: 0.85rem;
+                margin-bottom: 0.25rem;
+            }
+            .col-heard::before {
+                content: "ما يسمعه المشاهد (الصوتيات):";
+                display: block;
+                font-weight: 700;
+                color: var(--primary-gold);
+                font-size: 0.85rem;
+                margin-bottom: 0.25rem;
+            }
+            .col-prompt::before {
+                content: "موجه توليد الذكاء الاصطناعي (AI Prompt):";
+                display: block;
+                font-weight: 700;
+                color: var(--primary-gold);
+                font-size: 0.85rem;
+                margin-bottom: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <a href="index.html" class="btn-back-main">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>الرجوع للموقع الرئيسي</span>
+        </a>
+
+        <header>
+            <div class="logo-container">
+                <div class="logo-placeholder">NEW GRAPHIC</div>
+            </div>
+            <h1>سيناريو إعلان بن الألفي (30 ثانية) - رحلة الفرعون</h1>
+            <div class="subtitle">المخطط الكودى والسينمائي الكامل بنظام SECs موجه لمولدات الذكاء الاصطناعي</div>
+            <div class="badge-egypt">القصة الفرعونية التاريخية بمصر</div>
+        </header>
+
+        <!-- Context & Details Card -->
+        <section class="context-card">
+            <h3>فكرة الإعلان والربط الفني</h3>
+            <p>تم تحويل مفهوم إعلان هاف مليون (رجل الفضاء الذي يقطع كوكب الصحراء ليصل للمقهى ويعود بالقهوة على عربته) إلى <strong>قصة فرعونية أصيلة</strong> ملائمة لـ <strong>"بن الألفي"</strong> في مصر. القصة تحكي عن <strong>فرعون مصري قديم</strong> يشعر فجأة بحاجة شديدة للقهوة في مملكته بالصحراء، فيركب جمله ويقطع كثبان الرمل الشاسعة، وفي الأفق تظهر له مدينة بورسعيد الساحلية، فينتقل المشهد ليسير بجمله وعربته الخشبية الفارغة في شوارع بورسعيد ليصل إلى فرع "بن الألفي" الحقيقي بشارع طرح البحر، ويشتري كيس البن ويرجع سعيداً يجر عربته الخشبية المحملة بكنوز القهوة عائداً نحو مملكته بالصحراء والأهرامات.</p>
+            
+            <div class="context-grid">
+                <div class="context-item">
+                    <strong>السينما واللقطات المقربة</strong>
+                    <span>تركيز كامل على لقطات الـ Close-up لإظهار تفاصيل التاج الفرعوني، حبات العرق، ملمس البن، الفرحة الصافية، وتمايل رمال الصحراء.</span>
+                </div>
+                <div class="context-item">
+                    <strong>التناقض الإبداعي (Contrast)</strong>
+                    <span>الربط الصادم والجميل بين صحراء الفراعنة القديمة وتصميم فرع "بن الألفي" العصري المليء بالأنوار الذهبية والواجهات الزجاجية..�                <tbody>
+                    <!-- Scene 1 -->
+                    <tr>
+                        <td class="col-sec">0:00 - 0:05</td>
+                        <td class="col-seen">
+                            <strong>المشهد الأول: شغف الملك (Close-up)</strong><br>
+                            لقطة سينمائية مقربة جداً (Extreme Close-up) لعين فرعون مصري مهيب يرتدي النمس (التاج الفرعوني الذهبي). خيوط العرق تلمع على جبينه بسبب شمس الصحراء الحارقة. يفتح عينيه فجأة بتعابير تدل على الحاجة واليقظة الشديدة (مزاج الصداع والرغبة في البن). تبتعد الكاميرا قليلاً لتظهر ملامح وجهه القوية المزينة بالحلي الفرعونية الذهبية وهو ينظر للأفق.
+                        </td>
+                        <td class="col-heard">
+                            <div class="sfx-text">🔊 SFX: صوت رياح صحراوية قوية وعميقة، تليها خبطة طبلة فرعونية واحدة قوية (Distant heavy drum hit).</div>
+                        </td>
+                        <td class="col-prompt">
+                            <div class="prompt-box">
+                                <div class="prompt-header">
+                                    <span>Runway Gen-3 / Sora</span>
+                                    <span style="color:#a7f3d0">الموجه الأول (0-5 ث)</span>
+                                </div>
+                                <div class="prompt-text" id="prompt-1">Extreme cinematic macro close-up of a handsome ancient Egyptian Pharaoh's face. Focus on his sweaty skin glistening under the harsh desert sun and high-definition details of his eyes with dark kohl eyeliner opening suddenly in craving. He is wearing a highly detailed golden Nemes crown with lapis lazuli inlays and a heavy golden Egyptian usekh collar. The background is a blurry hot desert with heat distortion waves. Photorealistic, 8k resolution, cinematic lighting, shallow depth of field, 24fps.</div>
+                                <button class="btn-copy" onclick="copyPrompt('prompt-1', this)">
+                                    <span>نسخ الـ Prompt للتوليد</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Scene 2 -->
+                    <tr>
+                        <td class="col-sec">0:05 - 0:10</td>
+                        <td class="col-seen">
+                            <strong>المشهد الثاني: رحلة العبور وظهور الأفق (العربة الخشبية الفارغة)</strong><br>
+                            لقطة واسعة وسينمائية للفرعون وهو يركب جمله ويمشي به وسط كثبان رملية شاسعة وذهبية وممتدة في الصحراء المصرية. الجمل الذي يركبه يجر خلفه عربة خشبية فرعونية ريفية قديمة وفارغة، مربوطة بحبال متينة في سرج الجمل وتتمايل خلفه على الرمال. ينظر الفرعون للأفق بعينين ضيقتين من حرارة الشمس، وفجأة تظهر في الأفق البعيد معالم مدينة ساحلية حديثة تلوح وسط ضباب الحرارة والسراب كأنها واحة حضارية. تتوالى لقطات مقربة (Close-up) لحوافر الجمل وهي تغوص في الرمال الناعمة وتتطاير حبات الرمل ببطء (Slow Motion).
+                        </td>
+                        <td class="col-heard">
+                            <div class="sfx-text">🔊 SFX: صوت مشي الجمل على الرمل (Soft sand crunching)، وصوت قعقعة واحتكاك عجلات العربة الخشبية الفارغة وهي تُجر فوق التلال الرملية، مع إيقاع دفوف وموسيقى فرعونية حماسية تتصاعد تدريجياً.</div>
+                        </td>
+                        <td class="col-prompt">
+                            <div class="prompt-box">
+                                <div class="prompt-header">
+                                    <span>Runway Gen-3 / Sora</span>
+                                    <span style="color:#a7f3d0">الموجه الثاني (5-10 ث)</span>
+                                </div>
+                                <div class="prompt-text" id="prompt-2">Epic cinematic wide tracking shot of an ancient Egyptian Pharaoh riding a tall, decorated royal camel across massive, sweeping golden sand dunes in the Sahara desert. The camel has a rustic, weathered empty wooden cart attached to its harness behind it, pulling the cart as it walks. In the far distance on the horizon, a modern coastal city emerges from the heat haze. Alternating close-ups of the camel's feet sinking deeply into the soft sand, kicking up detailed sand particles in slow motion (60fps). Warm golden hour lighting, cinematic, 8k.</div>
+                                <button class="btn-copy" onclick="copyPrompt('prompt-2', this)">
+                                    <span>نسخ الـ Prompt للتوليد</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Scene 3 -->
+                    <tr>
+                        <td class="col-sec">0:10 - 0:15</td>
+                        <td class="col-seen">
+                            <strong>المشهد الثالث: معبد القهوة العصري (واجهة الفرع الحقيقية)</strong><br>
+                            بينما هو يسير بجمله وعربته وسط رمال الصحراء القاحلة، ينتقل المشهد سينمائياً بقطع حاد (Hard Cut) ليدخل شوارع مدينة بورسعيد الحقيقية المبلطة بالإنترلوك، حيث يقف بجمله وعربته الخشبية الفارغة أمام فرع "بن الألفي" العصري الفاخر بواجهته الحقيقية المميزة: حوائط خارجية من الحجر والخرسانة البيج الفاتحة (Beige tiled stone facade)، وأعمدة جانبية بيضاء مثبت عليها كشافات إضاءة جدارية مستطيلة سوداء تسلط الضوء الدافئ لأعلى ولأسفل. الواجهة مكونة من زجاج عملاق نظيف وأبواب زجاجية مزدوجة، ملصق عليها ثلاثة استيكرات بيضاء مفرغة (White frosted decals) لشعار "بن الألفي" الخطّي. فوق المدخل لافتة سوداء مستطيلة فخمة بها شعار "بن الألفي" بالنيون الأبيض الدافئ المضيء وكلمة "coffee brand" بخط ذهبي صغير. سقف المظلة الخارجية مصنوع من شرائح خشبية طولية دافئة تتخللها خطوط إضاءة ليد (LED strip lights) مستقيمة وساطعة. يقف الفرعون بجمله وعربته على الأرضية المبلطة ببلاط متداخل ذو نقوش دائرية مروحية أمام المقهى في انبهار وفرح تام.
+                        </td>
+                        <td class="col-heard">
+                            <div class="sfx-text">🔊 SFX: الموسيقى الحماسية تقف فجأة، وتحل محلها نغمة بيانو دافئة وساحرة (Magical piano swell)، مع هسيس خفيف لرياح دافئة تداعب المكان.</div>
+                        </td>
+                        <td class="col-prompt">
+                            <div class="prompt-box">
+                                <div class="prompt-header">
+                                    <span>Runway Gen-3 / Sora</span>
+                                    <span style="color:#a7f3d0">الموجه الثالث (10-15 ث)</span>
+                                </div>
+                                <div class="prompt-text" id="prompt-3">Cinematic transition, hard cut. While walking in the desert, the scene transitions to the clean modern streets of Port Said city (Tarh El-Bahr street). An ancient Egyptian Pharaoh riding his camel with an empty wooden cart attached behind it, walks down the street. The Pharaoh arrives and stops in front of the modern luxury storefront of "Bon Al-Alfy" coffee shop. The storefront features a beige tiled stone facade, clean white pillars with modern rectangular black wall sconces emitting warm up-and-down light, and large glass windows with white frosted logo decals. Above the entrance is a prominent rectangular black sign board showing a glowing warm white neon arabic calligraphy logo: "بن الألفي" and "coffee brand" written next to it. The entrance overhang has a ceiling of parallel light-wood slats with linear warm LED strip lights, and the ground is paved with circular fan-patterned paving stones. The Pharaoh looks at the storefront in absolute awe and joy, warm golden lighting, photorealistic, 8k.</div>
+                                <button class="btn-copy" onclick="copyPrompt('prompt-3', this)">
+                                    <span>نسخ الـ Prompt للتوليد</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Scene 4 -->
+                    <tr>
+                        <td class="col-sec">0:15 - 0:20</td>
+                        <td class="col-seen">
+                            <strong>المشهد الرابع: الكنز المقدس (كيس البن الحقيقي وجمال الداخل)</strong><br>
+                            لقطة مقربة فخمة داخل الفرع بتصميمه الحقيقي: المكان من الداخل مرتفع وضيق بإنارة ذهبية دافئة وراقية للغاية. السقف مغطى بشرائح خشبية طولية متوازية بها إضاءات ليد خطية دافئة، ويظهر لوجو "بن الألفي" النيون الأبيض المضيء معلقاً بجمال بالقرب من الباب. على الجانبين، نرى باراً خشبياً أنيقاً وجانبه كراسي بار معدنية سوداء مرتفعة ذات مقاعد خشبية، وعلى الجدار الآخر رفوف حديدية سوداء مضاءة بالخلف بإضاءة ليد دافئة وتحمل أصصاً بيضاء بها نباتات خضراء، وموزعات بن أكريليك شفافة معلقة على الحائط ومكتب عليها بخط عربي أبيض فخم ("هندي"، "توت"، "فانيليا"). 
+                            يد الفرعون السمراء المليئة بالأساور والخواتم الذهبية الفرعونية تمسك بكيس قهوة "بن الألفي" الورقي الحقيقي: الكيس بلون أبيض مائل للتيال (Light-teal) مغطى بنقوش رقيقة من خطوط فنية ناعمة لفناجين ودلال وحبات قهوة، وفي وسطه ملصق دائري كستنائي/بني غامق (Maroon circular badge) بإطار ذهبي متموج ومكتوب داخله شعار "بن الألفي" بالخط العربي المذهب وتحته "EL ALFY COFFEE" بالذهب، وفي أسفل الكيس رسمة فنجان قهوة ذهبي يتصاعد منه بخار وبجانبه ختم ذهبي دائري يحمل عبارة "قهوة تركي" بالعربية، مع مثلثات ذهبية مائلة في زوايا الكيس. يرفع الفرعون كيس البن ليحتضنه بابتسامة رضا وفرحة ويغمض عينيه مستنشقاً رائحته الغنية المتصاعدة منه.
+                        </td>
+                        <td class="col-heard">
+                            <div class="sfx-text">🔊 SFX: صوت طحن حبوب البن الطازجة في الخلفية، يليه صوت همس البخار من ماكينة الاسبريسو، وتنهيدة رضا دافئة وعميقة من الفرعون وهو يستنشق الرائحة.</div>
+                        </td>
+                        <td class="col-prompt">
+                            <div class="prompt-box">
+                                <div class="prompt-header">
+                                    <span>Runway Gen-3 / Luma</span>
+                                    <span style="color:#a7f3d0">الموجه الرابع (15-20 ث)</span>
+                                </div>
+                                <div class="prompt-text" id="prompt-4">Close-up shot inside a luxurious coffee shop interior with narrow high ceilings, warm golden lighting, wooden slatted ceiling with linear yellow recessed LEDs, and a large glowing white neon arabic calligraphy logo hanging from the ceiling. In the background, black metal shelves with warm LED backlighting hold small green plants in white pots, alongside wall-mounted clear acrylic coffee dispensers labeled in white Arabic calligraphy ("هندي", "توت", "فانيليا"). An ancient Egyptian Pharaoh's tanned hand with gold royal rings holds a light-teal and white paper coffee bag. The bag is printed with a fine line-art pattern of coffee cups, featuring a central circular maroon logo with a gold scalloped border writing "بن الألفي" and "EL ALFY COFFEE" in gold, a golden steaming cup graphic at the bottom, and gold corner stripes. Pharaoh holds the bag with supreme joy, closing eyes, inhaling the aroma with a peaceful smile, cinematic lighting, 8k.</div>
+                                <button class="btn-copy" onclick="copyPrompt('prompt-4', this)">
+                                    <span>نسخ الـ Prompt للتوليد</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Scene 5 -->
+                    <tr>
+                        <td class="col-sec">0:20 - 0:25</td>
+                        <td class="col-seen">
+                            <strong>المشهد الخامس: العودة بالخيرات عبر شوارع المدينة (العربة المحملة)</strong><br>
+                            لقطة حركية سينمائية من الجانب (Tracking Shot). الفرعون يركب جمله بفخر وسعادة وهو يسير في شوارع بورسعيد الممهدة متجهاً للخروج من المدينة، ويجر خلفه العربة الخشبية الريفية القديمة بعد أن ملأها بكنوز كثيرة: العربة مكدسة بأكوام ضخمة من أكياس "بن الألفي" الحقيقية بلونها المميز (أبيض مائل للتيال مع اللوجو الدائري الكستنائي المذهب). الهواء يحرك أقمشته الفرعونية البيضاء والذهبية ونراها ترفرف بجلال وسط هواء الصحراء العليل ومباني المدينة الساحلية تبتعد تدريجياً في الخلفية.
+                        </td>
+                        <td class="col-heard">
+                            <div class="sfx-text">🎵 BGM: الموسيقى الفرعونية الملحمية تتصاعد بقوة وشموخ وجمال مع إيقاعات دفوف مصرية ومزمار بلدي دافئ.</div>
+                            <div class="sfx-text">🔊 SFX: صوت قعقعة عجلات العربة الخشبية الثقيلة المحملة وهي تشق طريقها فوق الأسفلت والإنترلوك، مع أصوات حوافر الجمل المتناغمة.</div>
+                        </td>
+                        <td class="col-prompt">
+                            <div class="prompt-box">
+                                <div class="prompt-header">
+                                    <span>Runway Gen-3 / Sora</span>
+                                    <span style="color:#a7f3d0">الموجه الخامس (20-25 ث)</span>
+                                </div>
+                                <div class="prompt-text" id="prompt-5">Cinematic side-view tracking shot of the Egyptian Pharaoh riding his camel down the streets of Port Said under a magnificent sunset. The camel is pulling a weathered ancient wooden cart piled high with dozens of the distinctive light-teal and white 'Bon Al-Alfy' coffee bags featuring the circular maroon logo with gold scalloped borders. The cart's wooden wheels roll over the paved city street, with Port Said architecture and palm trees fading in the background. Pharaoh is smiling with pride and satisfaction, wind blowing his white linen garments, epic warm sunset colors, 8k.</div>
+                                <button class="btn-copy" onclick="copyPrompt('prompt-5', this)">
+                                    <span>نسخ الـ Prompt للتوليد</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Scene 6 -->
+                    <tr>
+                        <td class="col-sec">0:25 - 0:30</td>
+                        <td class="col-seen">
+                            <strong>المشهد السادس: لقطة الدرون والرجوع للصحراء</strong><br>
+                            لقطة درون سينمائية من الأعلى (Top-down Drone Shot) ترتفع وتبتعد للأعلى ببطء (Crane Zoom-out)، تبدأ من شوارع بورسعيد حيث يظهر فرع بن الألفي وعربة الفرعون، ثم تتداخل اللقطة وينتقل المشهد بسلاسة (Match Cut) إلى رمال الصحراء الذهبية الشاسعة حيث نرى الفرعون وجمله وعربته الممتلئة بأكياس البن يسيرون كخط صغير متوجهين نحو الأهرامات البعيدة المهيبة في الأفق تحت شمس الغروب البرتقالية. يتلاشى المشهد بنعومة ليظهر شعار "بن الألفي" الدائري البني المذهب الفخم المكتوب فيه "بن الألفي" بالخط العربي المتقن و"EL ALFY COFFEE".
+                        </td>
+                        <td class="col-heard">
+                            <div class="sfx-text">🎵 BGM: الموسيقى الأوركسترالية الفرعونية الملحمية تصل لذروتها وتستقر بنغمة نحاسية مهيبة وفخمة، ثم تتلاشى تدريجياً.</div>
+                        </td>
+                        <td class="col-prompt">
+                            <div class="prompt-box">
+                                <div class="prompt-header">
+                                    <span>Runway Gen-3 / Sora</span>
+                                    <span style="color:#a7f3d0">الموجه السادس (25-30 ث)</span>
+                                </div>
+                                <div class="prompt-text" id="prompt-6">Epic high-altitude top-down aerial drone shot, starting from above the Port Said street showing the coffee shop, then transitioning smoothly via a match-cut zoom out to the vast golden sand dunes of the desert. The Pharaoh on his camel pulling a wooden cart filled with coffee bags is seen traversing the desert towards the majestic Giza Pyramids visible on the horizon under the orange sunset haze. Beautiful cinematic landscape, warm colors. Fade out to the clean circular maroon and gold 'Bon Al-Alfy' coffee logo. Photorealistic, 8k.</div>
+                                <button class="btn-copy" onclick="copyPrompt('prompt-6', this)">
+                                    <span>نسخ الـ Prompt للتوليد</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>l-heard">
+                            <div class="sfx-text">🎵 BGM: الموسيقى الفرعونية الملحمية تتصاعد بقوة وشموخ وجمال مع إيقاعات دفوف مصرية ومزمار بلدي دافئ.</div>
+                            <div class="sfx-text">🔊 SFX: صوت قعقعة عجلات العربة الخشبية الثقيلة المحملة وهي تشق طريقها فوق الرمال الناعمة، مع أصوات حوافر الجمل المتناغمة.</div>
+                        </td>
+                        <td class="col-prompt">
+                            <div class="prompt-box">
+                                <div class="prompt-header">
+                                    <span>Runway Gen-3 / Sora</span>
+                                    <span style="color:#a7f3d0">الموجه الخامس (20-25 ث)</span>
+                                </div>
+                                <div class="prompt-text" id="prompt-5">Cinematic side-view tracking shot of an ancient Egyptian Pharaoh riding his camel across golden sand dunes under a majestic sunset. The camel is pulling a weathered, rustic ancient wooden cart behind it, now piled high with dozens of the distinctive light-teal and white 'Bon Al-Alfy' coffee bags featuring the circular maroon logo with gold scalloped borders. The wooden wheels of the loaded cart roll over the soft sand, leaving tracks. The Pharaoh is smiling with immense pride and satisfaction, royal white and gold linen garments blowing in the wind, epic sunset lighting, photorealistic, 8k.</div>
+                                <button class="btn-copy" onclick="copyPrompt('prompt-5', this)">
+                                    <span>نسخ الـ Prompt للتوليد</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Scene 6 -->
+                    <tr>
+                        <td class="col-sec">0:25 - 0:30</td>
+                        <td class="col-seen">
+                            <strong>المشهد السادس: العودة للمملكة (لقطة الدرون واللوجو النهائي)</strong><br>
+                            لقطة درون سينمائية مذهلة من الأعلى (Top-down Drone Shot) ترتفع وتبتعد للأعلى ببطء (Crane Zoom-out)، تظهر الفرع العصري الأنيق خلفهم، بينما الفرعون وجمله يجر العربة الخشبية الممتلئة بأكياس البن الأبيض والتيال يتحركون كشريط ذهبي صغير وسط رمال الصحراء اللامتناهية. في الأفق البعيد، تبرز أهرامات الجيزة المهيبة تحت غبار الشمس البرتقالية الدافئة وقت الغروب. يتلاشى المشهد بنعومة ليظهر شعار "بن الألفي" الدائري البني المذهب الفخم المكتوب فيه "بن الألفي" بالخط العربي المتقن و"EL ALFY COFFEE" (شكل اللوجو الحقيقي من صورة الكيس).
+                        </td>
+                        <td class="col-heard">
+                            <div class="sfx-text">🎵 BGM: الموسيقى الأوركسترالية الفرعونية الملحمية تصل لذروتها وتستقر بنغمة نحاسية مهيبة وفخمة، ثم تتلاشى تدريجياً.</div>
+                        </td>
+                        <td class="col-prompt">
+                            <div class="prompt-box">
+                                <div class="prompt-header">
+                                    <span>Runway Gen-3 / Sora</span>
+                                    <span style="color:#a7f3d0">الموجه السادس (25-30 ث)</span>
+                                </div>
+                                <div class="prompt-text" id="prompt-6">Epic high-altitude top-down aerial drone shot, slowly zooming out and rising higher (crane zoom out), revealing the modern coffee storefront in the background and the Pharaoh on his camel pulling a wooden cart filled with light-teal and white coffee bags across the vast golden sand dunes. In the far distance, under the orange sunset haze, the majestic pyramids of Giza stand tall. Beautiful cinematic landscape, warm colors. Fade out to the clean circular maroon and gold 'Bon Al-Alfy' coffee logo. Photorealistic, 8k.</div>
+                                <button class="btn-copy" onclick="copyPrompt('prompt-6', this)">
+                                    <span>نسخ الـ Prompt للتوليد</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- AI Tool Guide Section -->
+        <section class="ai-guide">
+            <h3>دليل توجيه الذكاء الاصطناعي وصناعة الفيديو (AI Prompting & Production Guide)</h3>
+            
+            <div class="ai-guide-step">
+                <h4>1. توليد وحفظ ملامح الشخصية (Character Consistency)</h4>
+                <p>لضمان بقاء ملامح الفرعون والتاج متطابقة في كل المشاهد:</p>
+                <ul>
+                    <li>ابدأ بتوليد صورة ثابتة (Keyframe) للفرعون بجودة عالية جداً على <strong>Midjourney</strong> أو <strong>Dreamina Image Generator</strong>.</li>
+                    <li>استخدم الصورة المولدة كـ <strong>Image Prompt</strong> أو كصورة مرجعية (Reference Image) في أدوات الفيديو.</li>
+                    <li>عند التوليد في أدوات مثل <strong>Runway Gen-3</strong>، استخدم خاصية (Image-to-Video) لضمان حركة الكاميرا حول الصورة الثابتة بدلاً من توليد المشهد من الصفر بالكامل.</li>
+                </ul>
+            </div>
+
+            <div class="ai-guide-step">
+                <h4>2. تحريك الكاميرا والحركة الواقعية (Camera & Motion Control)</h4>
+                <p>توجيهات فنية لأدوات الذكاء الاصطناعي:</p>
+                <ul>
+                    <li>في لقطة الجمل (المشهد الثاني والخامس)، اضبط <strong>Motion Strength</strong> على درجة متوسطة (مثال: 5 أو 6 في Runway) لتبدو حركة أقدام الجمل والرمال واقعية وليست مشوشة.</li>
+                    <li>في مشهد المطعم وسط الصحراء (المشهد الثالث)، ارفع الصورة الحقيقية للفرع المرفقة، واطلب من الذكاء الاصطناعي رسم رمال كثيفة حولها مع إبقاء جسم الفرع ثابتاً، ثم استخدم موجه التحريك الـ Pan أو Zoom.</li>
+                </ul>
+            </div>
+
+            <div class="ai-guide-step">
+                <h4>3. المونتاج واللمسات البصرية النهائية (Post-Production & VFX)</h4>
+                <p>خطوات التعديل النهائي في برنامج المونتاج (مثل Premiere Pro أو CapCut):</p>
+                <ul>
+                    <li><strong>تراكب اللوجو (Logo Overlay):</strong> الذكاء الاصطناعي قد يواجه صعوبة في كتابة الحروف العربية "بن الألفي" بدقة على كيس البن في المشهد الرابع. لتفادي ذلك، قم بتركيب اللوجو الخطّي الذهبي (PNG) فوق كيس البن في المونتاج باستخدام تقنية الـ **3D Camera Tracking**.</li>
+                    <li><strong>المؤثرات الصوتية (Sound Design):</strong> بما أن الإعلان لا يحتوي على تعليق صوتي، يجب أن يكون تصميم الصوت (Sound Design) غنياً جداً وتفاعلياً؛ مثل صوت رياح الصحراء الواضحة، احتكاك الرمال بأرجل الجمل والعجلات الخشبية، همس البخار، وصوت طبلة فرعونية ضخمة تتجاوب مع حركة الانتقالات.</li>
+                    <li><strong>تصحيح الألوان (Color Grading):</strong> اضبط الألوان النهائية لتعطي فلتر سينمائي دافئ يميل للون البرتقالي والذهبي (Golden Hour Filter) لربط المشاهد ببعضها كفيلم سينمائي واحد.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 شركة نيو جرافيك للدعاية والإعلان. جميع الحقوق محفوظة لـ بن الألفي.</p>
+    </footer>
+
+    <script>
+        function copyPrompt(id, btn) {
+            var text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(function() {
+                var originalText = btn.innerHTML;
+                btn.innerHTML = '<span>تم النسخ بنجاح! ✓</span>';
+                btn.style.background = '#4ade80';
+                btn.style.color = '#000';
+                btn.style.borderColor = '#4ade80';
+                
+                setTimeout(function() {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'rgba(197, 160, 89, 0.1)';
+                    btn.style.color = 'var(--primary-gold)';
+                    btn.style.borderColor = 'var(--primary-gold)';
+                }, 2000);
+            }, function(err) {
+                console.error('فشل النسخ: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
