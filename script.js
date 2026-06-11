@@ -708,6 +708,16 @@ function initHeader() {
     if (!header) return;
 
     let ticking = false;
+    const internalPages = [
+        document.getElementById('clientsPage'),
+        document.getElementById('socialPage'),
+        document.getElementById('identityPage')
+    ].filter(Boolean);
+
+    function updateInternalPageState() {
+        const hasInternalPage = internalPages.some(page => page.classList.contains('active'));
+        document.body.classList.toggle('is-internal-page', hasInternalPage);
+    }
 
     // Map each section to the navbar theme it needs
     // 'light' = section has a light bg → navbar goes dark (inverted)
@@ -774,6 +784,14 @@ function initHeader() {
         }
     });
 
+    internalPages.forEach(page => {
+        new MutationObserver(updateInternalPageState).observe(page, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    });
+
+    updateInternalPageState();
     updateHeaderTheme();
 }
 

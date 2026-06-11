@@ -9341,7 +9341,8 @@ body.menu-open .edge-trigger-arrow {
 
     .menu-toggle,
     .menu-toggle-fixed,
-    .mobile-menu {
+    .mobile-menu,
+    .lang-btn--mobile {
         display: none !important;
     }
 
@@ -9357,7 +9358,7 @@ body.menu-open .edge-trigger-arrow {
         transform: translateX(-50%) !important;
         width: fit-content;
         width: max-content;
-        max-width: calc(100vw - 166px);
+        max-width: calc(100vw - 132px);
         height: auto !important;
         min-height: 50px !important;
         padding: 5px 8px;
@@ -9390,8 +9391,8 @@ body.menu-open .edge-trigger-arrow {
     }
 
     .nav-link {
-        font-size: clamp(0.52rem, 1vw, 0.68rem);
-        padding: 0 7px;
+        font-size: clamp(0.5rem, 0.92vw, 0.66rem);
+        padding: 0 6px;
         gap: 3px;
         line-height: 1;
         min-height: 36px;
@@ -9405,8 +9406,13 @@ body.menu-open .edge-trigger-arrow {
     }
 
     .nav-link--cta {
-        font-size: clamp(0.54rem, 1vw, 0.7rem);
-        padding: 0 10px;
+        font-size: clamp(0.5rem, 0.92vw, 0.66rem);
+        padding: 0 7px;
+    }
+
+    .nav-link--order {
+        font-size: clamp(0.5rem, 0.92vw, 0.66rem) !important;
+        padding: 0 7px !important;
     }
 
     .header-lang-fixed {
@@ -9451,11 +9457,36 @@ body.menu-open .edge-trigger-arrow {
     }
 }
 
+@media (orientation: landscape), (min-width: 600px) {
+    .lang-btn--mobile {
+        display: none !important;
+    }
+
+    .header-lang-fixed {
+        display: flex !important;
+        left: 8px !important;
+        right: auto !important;
+        top: 0 !important;
+        align-items: center !important;
+    }
+
+    html[lang="en"] .header-lang-fixed {
+        left: 8px !important;
+        right: auto !important;
+    }
+}
+
+@media (min-width: 760px) and (max-width: 1100px) {
+    .nav-link--cta svg {
+        display: none !important;
+    }
+}
+
 @media (pointer: coarse) and (orientation: landscape) and (max-width: 932px) and (max-height: 520px) {
     .header-pill--nav {
         width: fit-content !important;
         width: max-content !important;
-        max-width: calc(100vw - 128px) !important;
+        max-width: calc(100vw - 112px) !important;
         height: auto !important;
         min-height: 46px !important;
         padding: 5px 6px !important;
@@ -9478,8 +9509,8 @@ body.menu-open .edge-trigger-arrow {
     }
 
     .nav-link {
-        font-size: clamp(0.48rem, 1.02vw, 0.58rem) !important;
-        padding: 0 4px !important;
+        font-size: clamp(0.46rem, 0.96vw, 0.56rem) !important;
+        padding: 0 3px !important;
         gap: 2px !important;
         line-height: 1 !important;
         min-height: 34px !important;
@@ -9493,8 +9524,13 @@ body.menu-open .edge-trigger-arrow {
     }
 
     .nav-link--cta {
-        font-size: clamp(0.5rem, 1.05vw, 0.6rem) !important;
-        padding: 0 6px !important;
+        font-size: clamp(0.48rem, 0.98vw, 0.58rem) !important;
+        padding: 0 5px !important;
+    }
+
+    .nav-link--order {
+        font-size: clamp(0.48rem, 0.98vw, 0.58rem) !important;
+        padding: 0 5px !important;
     }
 
     .header-pill--logo {
@@ -9610,5 +9646,199 @@ body.menu-open .edge-trigger-arrow {
 
     .dropdown-pill-divider {
         font-size: 0.68rem !important;
+    }
+}
+
+/* Tablet/iPad: keep the desktop logo treatment, no mobile bubble. */
+@media (min-width: 760px) and (max-width: 1340px) and (min-height: 560px) {
+    .header-pill--logo,
+    .main-header.scrolled .header-pill--logo,
+    body.is-orange-theme .header-pill--logo,
+    body.is-light-theme .header-pill--logo,
+    body.is-dark-theme .header-pill--logo {
+        display: flex !important;
+        position: fixed !important;
+        top: 24px !important;
+        right: 32px !important;
+        left: auto !important;
+        width: auto !important;
+        height: auto !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        overflow: visible !important;
+        transform: none !important;
+        isolation: auto !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    html[lang="en"] .header-pill--logo,
+    html[lang="en"] .main-header.scrolled .header-pill--logo {
+        right: auto !important;
+        left: 32px !important;
+    }
+
+    .header-pill--logo::before,
+    .header-pill--logo::after,
+    .main-header.scrolled .header-pill--logo::before,
+    .main-header.scrolled .header-pill--logo::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    .header-pill--logo .logo-img,
+    .main-header.scrolled .header-pill--logo .logo-img {
+        width: auto !important;
+        object-fit: contain !important;
+        filter: none !important;
+    }
+
+    .header-pill--logo .logo-img {
+        height: 112px !important;
+        content: url('assets/logo.png') !important;
+    }
+
+    .main-header.scrolled .header-pill--logo .logo-img {
+        height: 92px !important;
+    }
+
+    .main-header.header--dark .header-pill--logo .logo-img,
+    body.is-dark-theme .main-header .header-pill--logo .logo-img {
+        content: url('assets/logo_white.png') !important;
+    }
+
+    .main-header.header--light .header-pill--logo .logo-img,
+    .main-header.header--orange .header-pill--logo .logo-img,
+    body.is-light-theme .main-header .header-pill--logo .logo-img,
+    body.is-orange-theme .main-header .header-pill--logo .logo-img,
+    body:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+    body:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+    body:has(#identityPage.active) .main-header .header-pill--logo .logo-img {
+        content: url('assets/logo.png') !important;
+    }
+}
+
+@media (min-width: 760px) and (max-width: 1340px) and (min-height: 560px) and (orientation: landscape) {
+    .header-pill--logo,
+    .main-header.scrolled .header-pill--logo,
+    body.is-orange-theme .header-pill--logo,
+    body.is-light-theme .header-pill--logo,
+    body.is-dark-theme .header-pill--logo {
+        top: 18px !important;
+        right: 28px !important;
+        padding: 0 !important;
+    }
+
+    html[lang="en"] .header-pill--logo,
+    html[lang="en"] .main-header.scrolled .header-pill--logo {
+        right: auto !important;
+        left: 28px !important;
+    }
+
+    .header-pill--logo .logo-img {
+        height: 86px !important;
+    }
+
+    .main-header.scrolled .header-pill--logo .logo-img {
+        height: 76px !important;
+    }
+}
+
+/* Mobile logo color follows the same section theme as desktop. */
+@media (max-width: 759px), (orientation: landscape) and (max-width: 932px) and (max-height: 520px) {
+    .header-pill--logo .logo-img,
+    .main-header.header--light .header-pill--logo .logo-img,
+    .main-header.header--orange .header-pill--logo .logo-img,
+    body.is-light-theme .main-header .header-pill--logo .logo-img,
+    body.is-orange-theme .main-header .header-pill--logo .logo-img,
+    body:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+    body:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+    body:has(#identityPage.active) .main-header .header-pill--logo .logo-img {
+        content: url('assets/phone logo.png') !important;
+    }
+
+    .main-header.header--dark .header-pill--logo .logo-img,
+    body.is-dark-theme .main-header .header-pill--logo .logo-img {
+        content: url('assets/phone logo_white.png') !important;
+    }
+
+    body:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+    body:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+    body:has(#identityPage.active) .main-header .header-pill--logo .logo-img {
+        content: url('assets/phone logo.png') !important;
+        filter: none !important;
+    }
+}
+
+/* Internal pages never use the white logo; only the home page can theme-switch it. */
+body:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+body:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+body:has(#identityPage.active) .main-header .header-pill--logo .logo-img {
+    content: url('assets/logo.png') !important;
+    filter: none !important;
+}
+
+body:has(.featured-gallery-overlay.open) .main-header .header-pill--logo .logo-img,
+body:has(.gallery-lightbox) .main-header .header-pill--logo .logo-img,
+body:has(.gallery-lightbox-global) .main-header .header-pill--logo .logo-img {
+    content: url('assets/logo.png') !important;
+    filter: none !important;
+}
+
+body:has(#clientsPage.active) .main-header .logo-img,
+body:has(#socialPage.active) .main-header .logo-img,
+body:has(#identityPage.active) .main-header .logo-img {
+    content: url('assets/logo.png') !important;
+    filter: none !important;
+}
+
+body.is-internal-page .main-header .logo-img,
+body.is-internal-page .main-header .header-pill--logo .logo-img,
+body.is-internal-page.is-dark-theme .main-header .logo-img,
+body.is-internal-page.is-dark-theme .main-header .header-pill--logo .logo-img,
+body.is-dark-theme:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+body.is-dark-theme:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+body.is-dark-theme:has(#identityPage.active) .main-header .header-pill--logo .logo-img,
+body.is-orange-theme:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+body.is-orange-theme:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+body.is-orange-theme:has(#identityPage.active) .main-header .header-pill--logo .logo-img,
+body.is-light-theme:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+body.is-light-theme:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+body.is-light-theme:has(#identityPage.active) .main-header .header-pill--logo .logo-img {
+    content: url('assets/logo.png') !important;
+    filter: none !important;
+}
+
+@media (max-width: 759px), (orientation: landscape) and (max-width: 932px) and (max-height: 520px) {
+    body:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+    body:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+    body:has(#identityPage.active) .main-header .header-pill--logo .logo-img,
+    body:has(.featured-gallery-overlay.open) .main-header .header-pill--logo .logo-img,
+    body:has(.gallery-lightbox) .main-header .header-pill--logo .logo-img,
+    body:has(.gallery-lightbox-global) .main-header .header-pill--logo .logo-img {
+        content: url('assets/phone logo.png') !important;
+        filter: none !important;
+    }
+
+    body.is-internal-page .main-header .header-pill--logo .logo-img,
+    body.is-internal-page.is-dark-theme .main-header .header-pill--logo .logo-img,
+    body.is-dark-theme:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+    body.is-dark-theme:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+    body.is-dark-theme:has(#identityPage.active) .main-header .header-pill--logo .logo-img,
+    body.is-orange-theme:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+    body.is-orange-theme:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+    body.is-orange-theme:has(#identityPage.active) .main-header .header-pill--logo .logo-img,
+    body.is-light-theme:has(#clientsPage.active) .main-header .header-pill--logo .logo-img,
+    body.is-light-theme:has(#socialPage.active) .main-header .header-pill--logo .logo-img,
+    body.is-light-theme:has(#identityPage.active) .main-header .header-pill--logo .logo-img {
+        content: url('assets/phone logo.png') !important;
+        filter: none !important;
     }
 }
