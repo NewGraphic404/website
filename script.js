@@ -1451,7 +1451,7 @@ function initTypewriter() {
    SMOOTH SCROLL
    ================================================================ */
 function initSmoothScroll() {
-    const links = document.querySelectorAll('.nav-link:not(#navClients):not(#navSocial):not(#navIdentity), .mobile-nav-link:not([href="#social-page"]):not([href="#identityPage"]), a[href="#hero"], a[href="#contact"], .footer-links a');
+    const links = document.querySelectorAll('.nav-link:not(#navClients):not(#navSocial):not(#navIdentity), .mobile-nav-link:not([href="#social-page"]):not([href="#identityPage"]), a[href="#hero"], a[href="#contact"], a[href="#clients-section"], .footer-links a');
 
     links.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -5679,7 +5679,7 @@ function initIdentityPage() {
                 closePage();
             }
         } else {
-            if (identityPage.classList.contains('active') && !hash.startsWith('#clients') && !hash.startsWith('#social')) {
+            if (identityPage.classList.contains('active')) {
                 closePage(true);
             }
         }
