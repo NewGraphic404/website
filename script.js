@@ -5255,7 +5255,7 @@ function initIdentityPage() {
 
     const navIdentity = document.getElementById('navIdentity');
     const mobileNavIdentity = document.getElementById('mobileNavIdentity');
-    const identityAssetVersion = '1.5.18';
+    const identityAssetVersion = '1.5.19';
 
     if (!identityPage) return;
 
@@ -5316,6 +5316,12 @@ function initIdentityPage() {
                 year: '2026',
                 sector_ar: 'التطوير العقاري',
                 sector_en: 'Real Estate'
+            },
+            optimized_pages: {
+                1: 'page-1-web.jpg',
+                4: 'page-4-web.jpg',
+                5: 'page-5-web.jpg',
+                6: 'page-6-web.jpg'
             },
             layout: [
                 { type: 'full-width', pages: [1, 2, 3, 4, 5, 6, 7] }
@@ -5508,6 +5514,12 @@ function initIdentityPage() {
         }
 
 
+        function getIdentityPageSrc(pageNum) {
+            const optimizedFile = client.optimized_pages && client.optimized_pages[pageNum];
+            const fileName = optimizedFile || `page-${pageNum}.jpg`;
+            return `assets/pdf-pages/${clientKey}/${fileName}?v=${identityAssetVersion}`;
+        }
+
         // Generate pages according to layout config
         identityPagesContainer.innerHTML = '';
         if (client.layout && client.layout.length > 0) {
@@ -5541,14 +5553,14 @@ function initIdentityPage() {
                         wrapper.className = 'identity-page-wrapper';
                         
                         const img = document.createElement('img');
-                        img.src = `assets/pdf-pages/${clientKey}/page-${pageNum}.jpg?v=${identityAssetVersion}`;
+                        img.src = getIdentityPageSrc(pageNum);
                         if (block.type === 'grid-2col-tilted') {
                             img.className = `identity-page-img ${index % 2 === 0 ? 'identity-page-img--tilted-left' : 'identity-page-img--tilted-right'}`;
                         } else {
                             img.className = 'identity-page-img';
                         }
                         img.alt = `${lang === 'ar' ? client.name_ar : client.name_en} - Page ${pageNum}`;
-                        img.loading = 'lazy';
+                        img.loading = pageNum === 1 ? 'eager' : 'lazy';
                         img.decoding = 'async';
                         img.fetchPriority = pageNum === 1 ? 'high' : 'low';
                         
@@ -5569,10 +5581,10 @@ function initIdentityPage() {
                 wrapper.className = 'identity-page-wrapper';
                 
                 const img = document.createElement('img');
-                img.src = `assets/pdf-pages/${clientKey}/page-${i}.jpg?v=${identityAssetVersion}`;
+                img.src = getIdentityPageSrc(i);
                 img.className = 'identity-page-img';
                 img.alt = `${lang === 'ar' ? client.name_ar : client.name_en} - Page ${i}`;
-                img.loading = 'lazy';
+                img.loading = i === 1 ? 'eager' : 'lazy';
                 img.decoding = 'async';
                 img.fetchPriority = i === 1 ? 'high' : 'low';
                 
